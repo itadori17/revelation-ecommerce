@@ -5,7 +5,6 @@ import Add from './components/Add/Add';
 
 
 function App() {
-  
 	return (
 		<>
 			<Navbar/>
