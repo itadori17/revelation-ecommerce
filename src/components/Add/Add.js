@@ -1,7 +1,7 @@
 import { ref, push } from 'firebase/database';
 import React, {useState} from 'react';
 import { db } from '../config/Firebase';
-
+import './Add.css'
 
 function Add() {
     const [brand, setBrand] = useState("");
@@ -32,9 +32,15 @@ function Add() {
 
 
   return (
-    <div>
-        <form>
-            <div>
+    
+    <div className='productsInfo'>
+      <div className='leftSideProductsInfo'>leftSideProductsInfo</div>
+      <div className='MiddleProductsInfo'>MiddleProductsInfo</div>
+       <div className='rightSideProductsInfo'>
+        <form >
+         
+            <div className='formProduct'>
+            <h2>Add Product</h2>
             <select  onChange={(text) => {
                     setBrand(text.target.value);
                   }}>
@@ -44,6 +50,7 @@ function Add() {
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
+            <button>+</button>
             </div>
             <div>
             <select name="" id=""  onChange={(text) => {
@@ -55,6 +62,7 @@ function Add() {
                 <option value="4">3</option>
                 <option value="5">4</option>
             </select>
+            <button>+</button>
             </div>
             <div>
                 <input type="text" placeholder='Product Name' onChange={(text) => {
@@ -95,7 +103,9 @@ function Add() {
             onClick={add}
             >Add</button>
         </form>
+        </div>
     </div>
+  
   )
 }
 
