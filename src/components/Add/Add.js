@@ -9,17 +9,24 @@ function Add() {
     const [productName, setProductName] = useState("");
     const [image, setImage] = useState("");
     const [Price, setPrice] = useState("");
+    const [About, setAboutProduct] = useState("");
+    const [Size, setSize] = useState("");
     const [Colors, setColors] = useState("");
     const [Filters, setFilter] = useState("");
 
     const add = async  () => {
         
+
+
+
         let productInfo = {
           brandname: brand,
           categoryName: category,
           productname: productName,
           productImage: image,
           productPrice: Price,
+          aboutProducr: About,
+          productSize: Size,
           productColors: Colors,
           productFilter: Filters
           
@@ -39,21 +46,21 @@ function Add() {
                     setBrand(text.target.value);
                   }}>
             <option value="1">Select Brand</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="Brand 1">Brand 1</option>
+                <option value="Brand 2">Brand 2</option>
+                <option value="Brand 3">Brand 3</option>
+                <option value="Brand 4">Brand 4</option>
             </select>
             </div>
             <div>
             <select name="" id=""  onChange={(text) => {
                     setCategory(text.target.value);
                   }} >
-                <option value="1">Select Category</option>
-                <option value="2">1</option>
-                <option value="3">2</option>
-                <option value="4">3</option>
-                <option value="5">4</option>
+                <option value="Category 1">Select Category</option>
+                <option value="Category 2">Category 1</option>
+                <option value="Category 3">Category 2</option>
+                <option value="Category 4">Category 3</option>
+                <option value="Category 5">Category 4</option>
             </select>
             </div>
             <div>
@@ -65,6 +72,57 @@ function Add() {
                 <input type='number' step="0.01" placeholder='Price'
                 onChange={(text) => {
                     setPrice(text.target.value);
+                  }}
+                ></input>
+            </div>
+            <div>
+                <textarea type='text' placeholder='About the product'
+                onChange={(text) => {
+                    setAboutProduct(text.target.value);
+                  }}
+                ></textarea>
+            </div>
+            <div>
+              <label>XS</label>
+                <input type="checkbox" value="XS" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                 <label>S</label>
+                <input type="checkbox" value="S" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                <label>M</label>
+                <input type="checkbox" value="M" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                <label>L</label>
+                <input type="checkbox" value="L" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                <label>XL</label>
+                <input type="checkbox" value="XL" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                <label>2XL</label>
+                <input type="checkbox" value="2XL" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                ></input>
+                <label>3XL</label>
+                <input type="checkbox" value="3XL" placeholder='Available size'
+                onChange={(text) => {
+                    setSize(text.target.value);
                   }}
                 ></input>
             </div>
