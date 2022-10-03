@@ -1,0 +1,18 @@
+.tabs {
+    padding: 12px 40px;
+    background-color: #ffffff;
+    color: #B76E79;
+    font-weight: se;
+    transition: 0.5s;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.cmscenter {
+    align-content:flex-end;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
