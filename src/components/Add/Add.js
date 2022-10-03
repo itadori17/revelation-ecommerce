@@ -46,7 +46,7 @@ function Add() {
         <form className='formProduct'>
            <div className='Addprod'>
               <div className='prod'>
-                 <h2>Add Product</h2>
+                 <p>Add Product</p>
                     <select  onChange={(text) => {
                        setBrand(text.target.value);
                       }}>
@@ -94,50 +94,58 @@ function Add() {
             </div> 
 
             <div className='Addsizes'>
-            <h2>Add Product</h2>
-            <div>
-              <label>XS</label>
-                <input type="checkbox" value="XS" placeholder='Available size'
-                onChange={(text) => {
-                    setSize(text.target.value);
-                  }}
-                ></input>
-                 <label>S</label>
-                <input type="checkbox" value="S" placeholder='Available size'
-                onChange={(text) => {
-                    setSize(text.target.value);
-                  }}
-                ></input>
-                <label>M</label>
+               <div className='sizes'>
+                  <p>Available sizes</p>
+                 
+                    <input type="checkbox" value="XS" placeholder='Available size'
+                      onChange={(text) => {
+                       setSize(text.target.value);
+                       }}
+                     ></input>
+                    <label>XS</label>
+               
+                 
+                    <input type="checkbox" value="S" placeholder='Available size'
+                      onChange={(text) => {
+                        setSize(text.target.value);
+                        }}
+                     ></input>
+                    <label>S</label>
+               
                 <input type="checkbox" value="M" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                <label>L</label>
+                 <label>M</label>
+                
                 <input type="checkbox" value="L" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                <label>XL</label>
+                 <label>L</label>
+                
                 <input type="checkbox" value="XL" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                <label>2XL</label>
+                <label>XL</label>
+              
                 <input type="checkbox" value="2XL" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                <label>3XL</label>
+                  <label>2XL</label>
+                
                 <input type="checkbox" value="3XL" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
+                <label>3XL</label>
             </div>
             <div>
                 <input type='file'
