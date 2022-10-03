@@ -110,21 +110,21 @@ function Add() {
                         setSize(text.target.value);
                         }}
                      ></input>
-                    <label>S</label>
+                    <label>       S       </label>
                
                 <input type="checkbox" value="M" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                 <label>M</label>
+                 <label>        M     </label>
                 
                 <input type="checkbox" value="L" placeholder='Available size'
                 onChange={(text) => {
                     setSize(text.target.value);
                   }}
                 ></input>
-                 <label>L</label>
+                 <label>    L</label>
                 
                 <input type="checkbox" value="XL" placeholder='Available size'
                 onChange={(text) => {
@@ -147,15 +147,19 @@ function Add() {
                 ></input>
                 <label>3XL</label>
             </div>
-            <div>
+          
+            <div className='imagecon' >
+               <p>+</p>
                 <input type='file'
+              
                  onChange={(text) => {
                     setImage(text.target.value);
                   }}
                 ></input>
             </div>
+         
             </div>
-            <select name="" id=""  onChange={(text) => {
+            {/* <select id=""  onChange={(text) => {
                     setColors(text.target.value);
                   }}>
                 <option value="1">Select Colors</option>
@@ -163,12 +167,52 @@ function Add() {
                 <option value="3">2</option>
                 <option value="4">3</option>
                 <option value="5">4</option>
-            </select>
-            <div>
+            </select> */}
+                 <div className='sizes'>
+                  <div className='size'>
+                    <p>Available colors</p>
+                     <input type="checkbox" value="XS" placeholder='Available size'
+                        onChange={(text) => {
+                         setSize(text.target.value);
+                          }}
+                       ></input>
+                     <div></div>
+               
+                 
+                      <input type="checkbox" value="S" placeholder='Available size'
+                        onChange={(text) => {
+                         setSize(text.target.value);
+                         }}
+                      ></input>
+                       <div></div>
+               
+                      <input type="checkbox" value="M" placeholder='Available size'
+                       onChange={(text) => {
+                         setSize(text.target.value);
+                        }}
+                      ></input>
+                     <div></div>
+                   <input type="checkbox" value="M" placeholder='Available size'
+                     onChange={(text) => {
+                      setSize(text.target.value);
+                       }}
+                    ></input>
+                  <div></div>
+                 
+                  <input type="checkbox" value="L" placeholder='Available size'
+                   onChange={(text) => {
+                    setSize(text.target.value);
+                  }}
+                   ></input>
+                    <div></div>
+                 <div>
+                  
                 <input type='text' placeholder='Filters' onChange={(text) => {
                     setFilter(text.target.value);
                   }}></input>
             </div>
+            </div>
+                  </div>
             <button
             type="button"
             className="btn btn-secondary btn-block"
