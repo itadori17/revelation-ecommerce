@@ -1,0 +1,46 @@
+.Card {
+    background: linear-gradient(120deg, #F7CAC9 0%, rgba(243, 240, 240, 0) 100%);
+    height: 305px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000000;
+    padding: 10px;
+    margin: 10px;
+  }
+  .Card-img{
+    height: 180px;
+    width: 220px;
+    margin-bottom: 10px;
+    background-color: white;
+    align-items: center;
+    margin-left: 15px;
+  }
+  .Card-name{
+    font-size: 15pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    align-items: left;
+    margin-right: 55px;
+  }
+  .Card-price{
+    font-size: 1.2rem;
+    margin-right: 55px;
+  }
+  .Card-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -50px;
+  }
+  .icon{
+    width: 45px;
+    color: black;
+  }
+  .icon:hover{
+    color: #B76E79;
+  }

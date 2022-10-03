@@ -10,10 +10,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-<<<<<<< HEAD
     "react-router-dom": "^6.4.1",
-=======
->>>>>>> b289b65a70d5ca779b56e3fa3e2c7ccfbc934bcb
     "react-scripts": "5.0.1",
     "uid": "^2.0.1",
     "web-vitals": "^2.1.4"

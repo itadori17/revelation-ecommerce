@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './component/Navbar';
@@ -24,21 +23,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-=======
-import Navbar from "./components/navigation/Navbar";
-import './App.css'
-import Add from './components/Add/Add';
-
-
-function App() {
-	return (
-		<>
-			<Navbar/>
-			<Add/>
-			
-		</>
-	);
-}
->>>>>>> b289b65a70d5ca779b56e3fa3e2c7ccfbc934bcb
 
 export default App;
