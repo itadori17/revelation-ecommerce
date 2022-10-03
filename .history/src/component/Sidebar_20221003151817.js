@@ -4,7 +4,7 @@ import {
     
    
  } from "react-icons/fa";
-
+import {BiLoaderAlt} from "react-icons/bi"
 import {MdInventory, MdHistoryEdu, MdPendingActions} from "react-icons/md"
 import { NavLink } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const Sidebar = ({children}) => {
         {
             path:"/pending",
             name:"Pending Oders",
-            icon:<MdPendingActions/>
+            icon:<BiLoaderAlt/>
         },
         
     ]
