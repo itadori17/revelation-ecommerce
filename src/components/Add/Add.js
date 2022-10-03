@@ -42,7 +42,7 @@ function Add() {
     
     <div className='productsInfo'>
       <div className='leftSideProductsInfo'>leftSideProductsInfo</div>
-      <div className='MiddleProductsInfo'>MiddleProductsInfo</div>
+      <div className='MiddleProductsInfo'>MiddleProductsInfos</div>
        <div className='rightSideProductsInfo'>
         <form >
          
