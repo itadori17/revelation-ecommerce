@@ -41,48 +41,49 @@ function Add() {
   return (
     
     <div className='productsInfo'>
-      <div className='leftSideProductsInfo'>leftSideProductsInfo</div>
-      <div className='MiddleProductsInfo'>MiddleProductsInfos</div>
+    
        <div className='rightSideProductsInfo'>
-        <form >
-         
-            <div className='formProduct'>
-            <h2>Add Product</h2>
-            <select  onChange={(text) => {
-                    setBrand(text.target.value);
-                  }}>
-            <option value="1">Select Brand</option>
-                <option value="Brand 1">Brand 1</option>
-                <option value="Brand 2">Brand 2</option>
-                <option value="Brand 3">Brand 3</option>
-                <option value="Brand 4">Brand 4</option>
-            </select>
-            <button>+</button>
+        <form className='formProduct'>
+           <div className='Addprod'>
+              <div className='prod'>
+                 <h2>Add Product</h2>
+                    <select  onChange={(text) => {
+                       setBrand(text.target.value);
+                      }}>
+                       <option value="1">Select Brand</option>
+                          <option value="Brand 1">Brand 1</option>
+                          <option value="Brand 2">Brand 2</option>
+                          <option value="Brand 3">Brand 3</option>
+                          <option value="Brand 4">Brand 4</option>
+                    </select>
+                    <button>+</button>
+              </div>
+              <div >
+                    <select name="" id=""  onChange={(text) => {
+                        setCategory(text.target.value);
+                     }} >
+                      <option value="Category 1">Select Category</option>
+                         <option value="Category 2">Category 1</option>
+                         <option value="Category 3">Category 2</option>
+                         <option value="Category 4">Category 3</option>
+                         <option value="Category 5">Category 4</option>
+                     </select>
+                     <button>+</button>
             </div>
-            <div>
-            <select name="" id=""  onChange={(text) => {
-                    setCategory(text.target.value);
-                  }} >
-                <option value="Category 1">Select Category</option>
-                <option value="Category 2">Category 1</option>
-                <option value="Category 3">Category 2</option>
-                <option value="Category 4">Category 3</option>
-                <option value="Category 5">Category 4</option>
-            </select>
-            <button>+</button>
-            </div>
-            <div>
-                <input type="text" placeholder='Product Name' onChange={(text) => {
+            
+               <div>
+                   <input type="text" placeholder='Product Name' onChange={(text) => {
                     setProductName(text.target.value);
-                  }} ></input>
-            </div>
-            <div>
+                   }} ></input>
+               </div>
+               <div>
                 <input type='number' step="0.01" placeholder='Price'
-                onChange={(text) => {
+                   onChange={(text) => {
                     setPrice(text.target.value);
                   }}
                 ></input>
-            </div>
+               </div>
+            
             <div>
                 <textarea type='text' placeholder='About the product'
                 onChange={(text) => {
@@ -90,6 +91,10 @@ function Add() {
                   }}
                 ></textarea>
             </div>
+            </div> 
+
+            <div className='Addsizes'>
+            <h2>Add Product</h2>
             <div>
               <label>XS</label>
                 <input type="checkbox" value="XS" placeholder='Available size'
@@ -140,6 +145,7 @@ function Add() {
                     setImage(text.target.value);
                   }}
                 ></input>
+            </div>
             </div>
             <select name="" id=""  onChange={(text) => {
                     setColors(text.target.value);

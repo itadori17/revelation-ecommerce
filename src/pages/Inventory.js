@@ -1,9 +1,10 @@
 import React from 'react'
+import Add from '../components/Add/Add'
 
 function Inventory() {
   return (
     <div>
-      <h1>About page</h1>
+      <Add/>
     </div>
   )
 }
