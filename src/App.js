@@ -8,6 +8,7 @@ import Pending from './pages/Pending';
 import OrderHistory from './pages/OrderHistory';
 
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,7 +21,9 @@ const App = () => {
          
         </Routes>
       </Sidebar>
+    
     </BrowserRouter>
+    
   );
 };
 
