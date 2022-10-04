@@ -2,6 +2,7 @@ import { ref, push } from 'firebase/database';
 import React, {useState} from 'react';
 import { db } from '../config/Firebase';
 import './Add.css'
+import { uid } from "uid";
 
 function Add() {
     const [brand, setBrand] = useState("");
@@ -52,7 +53,9 @@ function Add() {
             productInformation:productInfo
           });
     }
-    console.log(Size)
+    const generateCode = async  () => {
+
+    }
 
   return (
     
@@ -67,24 +70,22 @@ function Add() {
                        setBrand(text.target.value);
                       }}>
                        <option value="1">Select Brand</option>
-                          <option value="Brand 1">Brand 1</option>
-                          <option value="Brand 2">Brand 2</option>
-                          <option value="Brand 3">Brand 3</option>
-                          <option value="Brand 4">Brand 4</option>
+                          <option value="Brand 1">Sale</option>
+                          <option value="Brand 2">Clothing</option>
+                          <option value="Brand 3">PPEs & Uniforms</option>
+                          <option value="Brand 4">Office Supplies</option>
                     </select>
-                    <button>+</button>
               </div>
               <div >
                     <select name="" id=""  onChange={(text) => {
                         setCategory(text.target.value);
                      }} >
                       <option value="Category 1">Select Category</option>
-                         <option value="Category 2">Category 1</option>
-                         <option value="Category 3">Category 2</option>
-                         <option value="Category 4">Category 3</option>
-                         <option value="Category 5">Category 4</option>
+                         <option value="Category 2">Female</option>
+                         <option value="Category 3">Male</option>
+                         <option value="Category 4">Unisex</option>
+                         <option value="Category 5">Supplies</option>
                      </select>
-                     <button>+</button>
             </div>
             
                <div>
@@ -101,7 +102,7 @@ function Add() {
                </div>
             
             <div>
-                <textarea type='text' placeholder='About the product'
+                <textarea type='text' placeholder='Product description'
                 onChange={(text) => {
                     setAboutProduct(text.target.value);
                   }}
@@ -230,10 +231,16 @@ function Add() {
             </div>
                   </div>
             <button
+            type='button'
+            className='btn btn-secondary btn-block'
+            onClick={generateCode}>
+              Generate code
+              </button>
+            <button
             type="button"
             className="btn btn-secondary btn-block"
             onClick={add}
-            >Add</button>
+            >Add item</button>
         </form>
         </div>
     </div>
