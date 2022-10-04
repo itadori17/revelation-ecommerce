@@ -11,6 +11,13 @@ function Add() {
     const [Price, setPrice] = useState("");
     const [About, setAboutProduct] = useState("");
     const [Size, setSize] = useState("");
+    const [xS, setSizeXs] = useState("");
+    const [s, setSizeS] = useState("");
+    const [m, setSizeM] = useState("");
+    const [l, setSizeL] = useState("");
+    const [xL, setSizeXl] = useState("");
+    const [xXl, setSize2Xl] = useState("");
+    const [xXxl, setSize3Xl] = useState("");
     const [Colors, setColors] = useState("");
     const [Filters, setFilter] = useState("");
 
@@ -18,6 +25,15 @@ function Add() {
         
 
 
+        let availableSize ={
+          XS:xS,
+          S:s,
+          M:m,
+          L:l,
+          X:xL,
+          XXL:xXl,
+          XXXL:xXxl
+        }
 
         let productInfo = {
           brandname: brand,
@@ -26,7 +42,7 @@ function Add() {
           productImage: image,
           productPrice: Price,
           aboutProducr: About,
-          productSize: Size,
+          productSize: availableSize,
           productColors: Colors,
           productFilter: Filters
           
@@ -36,7 +52,7 @@ function Add() {
             productInformation:productInfo
           });
     }
-
+    console.log(Size)
 
   return (
     
@@ -99,7 +115,7 @@ function Add() {
                  
                     <input type="checkbox" value="XS" placeholder='Available size'
                       onChange={(text) => {
-                       setSize(text.target.value);
+                       setSizeXs(text.target.value);
                        }}
                      ></input>
                     <label>XS</label>
@@ -107,42 +123,42 @@ function Add() {
                  
                     <input type="checkbox" value="S" placeholder='Available size'
                       onChange={(text) => {
-                        setSize(text.target.value);
+                        setSizeS(text.target.value);
                         }}
                      ></input>
                     <label>       S       </label>
                
                 <input type="checkbox" value="M" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeM(text.target.value);
                   }}
                 ></input>
                  <label>        M     </label>
                 
                 <input type="checkbox" value="L" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeL(text.target.value);
                   }}
                 ></input>
                  <label>    L</label>
                 
                 <input type="checkbox" value="XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeXl(text.target.value);
                   }}
                 ></input>
                 <label>XL</label>
               
                 <input type="checkbox" value="2XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSize2Xl(text.target.value);
                   }}
                 ></input>
                   <label>2XL</label>
                 
                 <input type="checkbox" value="3XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSize3Xl(text.target.value);
                   }}
                 ></input>
                 <label>3XL</label>
@@ -171,45 +187,45 @@ function Add() {
                  <div className='Addcolor'>
                   <div className='color'>
                     <p>Available colors</p>
-                     <input type="checkbox" value="XS" placeholder='Available size'
+                     <input type="checkbox" value="purple" placeholder='Available colors'
                         onChange={(text) => {
-                         setSize(text.target.value);
+                         setColors(text.target.value);
                           }}
                        ></input>
-                     <label>    L</label>
+                     <label> L</label>
                
                  
-                      <input type="checkbox" value="S" placeholder='Available size'
+                      <input type="checkbox" value="red" placeholder='Available colors'
                         onChange={(text) => {
-                         setSize(text.target.value);
+                         setColors(text.target.value);
                          }}
                       ></input>
                      <label>    L</label>
                
-                      <input type="checkbox" value="M" placeholder='Available size'
+                      <input type="checkbox" value="blue" placeholder='Available colors'
                        onChange={(text) => {
-                         setSize(text.target.value);
+                         setColors(text.target.value);
                         }}
                       ></input>
                      <label>    L</label>
-                   <input type="checkbox" value="M" placeholder='Available size'
+                   <input type="checkbox" value="green" placeholder='Available colors'
                      onChange={(text) => {
-                      setSize(text.target.value);
+                      setColors(text.target.value);
                        }}
                     ></input>
                  <label>    L</label>
                  
-                  <input type="checkbox" value="L" placeholder='Available size'
+                  <input type="checkbox" value="yellow" placeholder='Available colors'
                    onChange={(text) => {
-                    setSize(text.target.value);
+                    setColors(text.target.value);
                   }}
                    ></input>
                     <label>    L</label>
                  <div>
                   
-                <input type='text' placeholder='Filters' onChange={(text) => {
+                <textarea placeholder='Filters' onChange={(text) => {
                     setFilter(text.target.value);
-                  }}></input>
+                  }}></textarea>
             </div>
             </div>
                   </div>
