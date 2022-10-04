@@ -149,13 +149,13 @@ function Add() {
             </div>
           
             <div className='imagecon' >
-               <p>+</p>
-                <input type='file'
+            <p><input type='file'
               
-                 onChange={(text) => {
-                    setImage(text.target.value);
-                  }}
-                ></input>
+              onChange={(text) => {
+                 setImage(text.target.value);
+               }}
+             ></input>+
+              </p>
             </div>
          
             </div>
@@ -176,7 +176,7 @@ function Add() {
                          setSize(text.target.value);
                           }}
                        ></input>
-                     <label>    L</label>
+                      <label><div className='colorblock'></div></label>
                
                  
                       <input type="checkbox" value="S" placeholder='Available size'
@@ -184,35 +184,53 @@ function Add() {
                          setSize(text.target.value);
                          }}
                       ></input>
-                     <label>    L</label>
+                      <label><div className='colorblock1'></div></label>
                
                       <input type="checkbox" value="M" placeholder='Available size'
                        onChange={(text) => {
                          setSize(text.target.value);
                         }}
                       ></input>
-                     <label>    L</label>
+                     <label><div className='colorblock2'></div></label>
                    <input type="checkbox" value="M" placeholder='Available size'
                      onChange={(text) => {
                       setSize(text.target.value);
                        }}
                     ></input>
-                 <label>    L</label>
+                 <label><div className='colorblock3'></div></label>
                  
                   <input type="checkbox" value="L" placeholder='Available size'
                    onChange={(text) => {
                     setSize(text.target.value);
                   }}
                    ></input>
-                    <label>    L</label>
-                 <div>
-                  
-                <input type='text' placeholder='Filters' onChange={(text) => {
+                  <label><div className='colorblock4'></div></label>
+              
+              <div className='filter'>  
+                <input type='text' placeholder='Notes' onChange={(text) => {
                     setFilter(text.target.value);
                   }}></input>
+                </div>
+           
             </div>
+           
             </div>
-                  </div>
+            <div className='Buttonxontainer'>
+                 <input type="text" placeholder='Product Code' onChange={(text) => {
+                    setProductName(text.target.value);
+                   }} >
+                 </input>
+                <p>OR</p>
+                <button className='button1'>
+                  GENERATE CODE
+                </button >
+                <button className='button2'>
+                 ADD TO STALL
+                </button>
+                <button className='button3'>
+                 CLEAR FORM
+                </button>
+            </div>
             <button
             type="button"
             className="btn btn-secondary btn-block"
