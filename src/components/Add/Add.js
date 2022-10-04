@@ -168,15 +168,15 @@ function Add() {
                 <option value="4">3</option>
                 <option value="5">4</option>
             </select> */}
-                 <div className='sizes'>
-                  <div className='size'>
+                 <div className='Addcolor'>
+                  <div className='color'>
                     <p>Available colors</p>
                      <input type="checkbox" value="XS" placeholder='Available size'
                         onChange={(text) => {
                          setSize(text.target.value);
                           }}
                        ></input>
-                     <div></div>
+                     <label>    L</label>
                
                  
                       <input type="checkbox" value="S" placeholder='Available size'
@@ -184,27 +184,27 @@ function Add() {
                          setSize(text.target.value);
                          }}
                       ></input>
-                       <div></div>
+                     <label>    L</label>
                
                       <input type="checkbox" value="M" placeholder='Available size'
                        onChange={(text) => {
                          setSize(text.target.value);
                         }}
                       ></input>
-                     <div></div>
+                     <label>    L</label>
                    <input type="checkbox" value="M" placeholder='Available size'
                      onChange={(text) => {
                       setSize(text.target.value);
                        }}
                     ></input>
-                  <div></div>
+                 <label>    L</label>
                  
                   <input type="checkbox" value="L" placeholder='Available size'
                    onChange={(text) => {
                     setSize(text.target.value);
                   }}
                    ></input>
-                    <div></div>
+                    <label>    L</label>
                  <div>
                   
                 <input type='text' placeholder='Filters' onChange={(text) => {
