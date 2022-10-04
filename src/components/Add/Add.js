@@ -52,7 +52,7 @@ function Add() {
             productInformation:productInfo
           });
     }
-
+    console.log(Size)
 
   return (
     
