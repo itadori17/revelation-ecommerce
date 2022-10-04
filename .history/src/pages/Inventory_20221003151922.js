@@ -1,5 +1,5 @@
 import React from 'react'
-import Add from '../components/Add/Add'
+import Add
 
 function Inventory() {
   return (
