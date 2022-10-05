@@ -1,5 +1,5 @@
-import { ref, push } from 'firebase/database';
-import React, {useState} from 'react';
+import { getDatabase, ref, child, get,push } from "firebase/database";
+import React, {useEffect, useState} from 'react';
 import { uid } from 'uid';
 import { db } from '../config/Firebase';
 import './Add.css'
@@ -30,6 +30,10 @@ function Add() {
     const [Colors, setColors] = useState("");
     const [Filters, setFilter] = useState("");
     const [productTimeStamp, setProductTimeStamp] = useState(today);
+    const [allInfo, setAllInfo] = useState([]);
+    const uidd = uid();
+
+
 
     const [xS, setSizeXs] = useState("");
     const [s, setSizeS] = useState("");
@@ -38,6 +42,59 @@ function Add() {
     const [xL, setSizeXl] = useState("");
     const [xXl, setSize2Xl] = useState("");
     const [xXxl, setSize3Xl] = useState("");
+
+
+    const [ojbHandler, setObjHandler] = useState([]);
+    const arrObj = [];
+  
+    useEffect(() => {
+      
+          // read
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `productInformation`)).then((snapshot) => {
+     if (snapshot.exists()) {
+      console.log(snapshot.val());
+      let keys = Object.keys(snapshot.val())
+      const Key = snapshot.key;
+      const Data = snapshot.val();
+
+      let arr = []
+      for (var x = 0; x < keys.length; x++){
+        arr.push(Data[keys[x]])
+      }
+      console.log(arr)
+      setObjHandler(arr);
+
+    //   snapshot.forEach((Data) => {
+    //   const childDatas = Data.val();
+    //   let results =  childDatas;
+    //   let arr = [];
+    //   const obj  = results;
+    //   arrObj.push(arr)
+    //   console.log(arrObj);
+
+    //   console.log(arr);
+
+    //   // Data.forEach((childDatas) =>{
+    //   //   const Datas = childDatas.key;
+    //   //   const Keys = childDatas.val();
+     
+       
+    //   // })
+
+      
+
+    // })
+     
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
+        
+        
+      },[]);
 
     const add = async  () => {
         
@@ -67,8 +124,8 @@ function Add() {
           
         };
 
-        const uidd = uid();
-        push(ref(db, `${uidd}/`), {
+        
+        push(ref(db, `productInformation`), {
             productInformation:productInfo
           });
     }
