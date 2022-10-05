@@ -1,5 +1,6 @@
 import { ref, push } from 'firebase/database';
 import React, {useState} from 'react';
+import { uid } from 'uid';
 import { db } from '../config/Firebase';
 import './Add.css'
 
@@ -30,11 +31,28 @@ function Add() {
     const [Filters, setFilter] = useState("");
     const [productTimeStamp, setProductTimeStamp] = useState(today);
 
+    const [xS, setSizeXs] = useState("");
+    const [s, setSizeS] = useState("");
+    const [m, setSizeM] = useState("");
+    const [l, setSizeL] = useState("");
+    const [xL, setSizeXl] = useState("");
+    const [xXl, setSize2Xl] = useState("");
+    const [xXxl, setSize3Xl] = useState("");
+
     const add = async  () => {
         
     
 
-
+      
+      let availableSize ={
+        XS:xS,
+        S:s,
+        M:m,
+        L:l,
+        X:xL,
+        XXL:xXl,
+        XXXL:xXxl
+      }
         let productInfo = {
           brandname: brand,
           categoryName: category,
@@ -42,7 +60,7 @@ function Add() {
           productImage: image,
           productPrice: Price,
           aboutProducr: About,
-          productSize: Size,
+          productSize: availableSize,
           productColors: Colors,
           productFilter: Filters,
           timeStamp: productTimeStamp
@@ -114,53 +132,45 @@ function Add() {
             <div className='Addsizes'>
                <div className='sizes'>
                   <p>Available sizes</p>
-                 
                     <input type="checkbox" value="XS" placeholder='Available size'
                       onChange={(text) => {
-                       setSize(text.target.value);
+                       setSizeXs(text.target.value);
                        }}
                      ></input>
                     <label>XS</label>
-               
-                 
                     <input type="checkbox" value="S" placeholder='Available size'
                       onChange={(text) => {
-                        setSize(text.target.value);
+                        setSizeS(text.target.value);
                         }}
                      ></input>
                     <label>       S       </label>
-               
                 <input type="checkbox" value="M" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeM(text.target.value);
                   }}
                 ></input>
                  <label>        M     </label>
-                
                 <input type="checkbox" value="L" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeL(text.target.value);
                   }}
                 ></input>
                  <label>    L</label>
-                
                 <input type="checkbox" value="XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSizeXl(text.target.value);
                   }}
                 ></input>
                 <label>XL</label>
-              
                 <input type="checkbox" value="2XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSize2Xl(text.target.value);
                   }}
                 ></input>
                   <label>2XL</label>
-                
                 <input type="checkbox" value="3XL" placeholder='Available size'
                 onChange={(text) => {
-                    setSize(text.target.value);
+                    setSize3Xl(text.target.value);
                   }}
                 ></input>
                 <label>3XL</label>
