@@ -135,7 +135,7 @@ function Add() {
   return (
     
     <CmsCenter/>,
-    <div className='productsInfo'>
+   
     
        <div className='rightSideProductsInfo'>
         <form className='formProduct'>
@@ -327,7 +327,7 @@ function Add() {
         </div>
         
         
-    </div>
+    
   
   )
 }
