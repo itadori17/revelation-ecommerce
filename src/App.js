@@ -6,6 +6,7 @@ import Sidebar from './component/Sidebar';
 import Inventory from './pages/Inventory';
 import Pending from './pages/Pending';
 import OrderHistory from './pages/OrderHistory';
+import Add from './components/Add/Add';
 
 
 const App = () => {
