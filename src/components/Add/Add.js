@@ -305,7 +305,7 @@ function Add() {
                     setProductName(text.target.value);
                    }} >
                  </input>
-                <p>OR</p>
+                <p>or</p>
                 <button className='button1'>
                   GENERATE CODE
                 </button >
@@ -323,6 +323,8 @@ function Add() {
             >Add</button>
         </form>
         </div>
+        
+        
     </div>
   
   )
