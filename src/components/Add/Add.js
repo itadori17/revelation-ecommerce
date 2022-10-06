@@ -4,6 +4,21 @@ import { db } from '../config/Firebase';
 import './Add.css'
 
 function Add() {
+
+  var today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+  let yyyy = today.getFullYear();
+  let minutes = today.getMinutes();
+  let hour = today.getHours();
+  let sec = today.getSeconds();
+  if(dd<10){
+    dd='0'+dd
+  }
+  if(mm<10){
+    mm='0'+mm
+  }
+  today = yyyy+'-'+mm+'-'+dd+'-'+ hour + ":" + minutes +':' + sec;
     const [brand, setBrand] = useState("");
     const [category, setCategory] = useState("");
     const [productName, setProductName] = useState("");
@@ -13,10 +28,11 @@ function Add() {
     const [Size, setSize] = useState("");
     const [Colors, setColors] = useState("");
     const [Filters, setFilter] = useState("");
+    const [productTimeStamp, setProductTimeStamp] = useState(today);
 
     const add = async  () => {
         
-
+    
 
 
         let productInfo = {
@@ -28,11 +44,13 @@ function Add() {
           aboutProducr: About,
           productSize: Size,
           productColors: Colors,
-          productFilter: Filters
+          productFilter: Filters,
+          timeStamp: productTimeStamp
           
         };
-        
-        push(ref(db, `ProductInfo`), {
+
+        const uidd = uid();
+        push(ref(db, `${uidd}/`), {
             productInformation:productInfo
           });
     }
