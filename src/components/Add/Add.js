@@ -1,8 +1,9 @@
 import { getDatabase, ref, child, get,push } from "firebase/database";
 import React, {useEffect, useState} from 'react';
-import { uid } from 'uid';
+
 import { db } from '../config/Firebase';
 import './Add.css'
+import CmsCenter from "./CmsCenter";
 
 function Add() {
 
@@ -31,7 +32,7 @@ function Add() {
     const [Filters, setFilter] = useState("");
     const [productTimeStamp, setProductTimeStamp] = useState(today);
     const [allInfo, setAllInfo] = useState([]);
-    const uidd = uid();
+
 
 
 
@@ -133,6 +134,7 @@ function Add() {
 
   return (
     
+    <CmsCenter/>,
     <div className='productsInfo'>
     
        <div className='rightSideProductsInfo'>
