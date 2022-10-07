@@ -39,6 +39,7 @@ function Pending() {
     
 
   ])
+  
   return (
     <div>
       <h1>Pending Orders</h1>
@@ -53,6 +54,22 @@ function Pending() {
             <p>{card.price}</p>
             <p>{card.ref}</p>
             <button className='btn'>View Order</button>
+            <div>
+                {
+                    popup?
+                    <div className="main">
+                        <div className="popup">
+                            <div className="popup-header">
+                                <h1>popup</h1>
+                                <h1 onClick={closePopup}>X</h1>
+                            </div>
+                            <div>
+                            <p>This is simple popup in React js</p>
+                            </div>
+                        </div>
+                    </div>:""
+                }
+            </div>
           </div>
             ))
           }

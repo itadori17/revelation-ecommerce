@@ -33,11 +33,27 @@ function Pending() {
       price: 'R250',
       ref: 'REF brkn-283753'
     },
+    {
+      title: 'Moabi',
+      price: 'R250',
+      ref: 'REF brkn-283753'
+    },
+    {
+      title: 'Moabi',
+      price: 'R250',
+      ref: 'REF brkn-283753'
+    },
+    {
+      title: 'Moabi',
+      price: 'R250',
+      ref: 'REF brkn-283753'
+    },
+    {
+      title: 'Moabi',
+      price: 'R250',
+      ref: 'REF brkn-283753'
+    },
     
-   
-   
-    
-
   ])
   return (
     <div>
