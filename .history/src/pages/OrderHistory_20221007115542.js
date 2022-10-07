@@ -5,36 +5,37 @@ function OrderHistory() {
   {
     title: 'Bongani',
     price: 'R250',
-    ref: 'Order Collected'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'KAt',
     price: 'R754',
-    ref: 'Order Collected'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'Sadiki',
     price: 'R1450',
-    ref: 'Order Delivered'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'Kamo',
     price: 'R250',
-    ref: 'Order Delivered'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'Moabi',
     price: 'R250',
-    ref: 'Order Collectec'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'Moabi',
     price: 'R250',
-    ref: 'Order Delivered'
+    ref: 'REF brkn-283753'
   },])
   return (
     <div>
        <h1>Order History</h1>
+       <h1>Pending Orders</h1>
        <section>
         <div className='container'>
         

@@ -5,7 +5,7 @@ function OrderHistory() {
   {
     title: 'Bongani',
     price: 'R250',
-    ref: 'Order Collected'
+    ref: 'REF brkn-283753'
   },
   {
     title: 'KAt',

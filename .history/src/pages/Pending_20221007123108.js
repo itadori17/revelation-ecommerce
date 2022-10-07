@@ -53,6 +53,7 @@ function Pending() {
             <p>{card.price}</p>
             <p>{card.ref}</p>
             <button className='btn'>View Order</button>
+            
           </div>
             ))
           }
