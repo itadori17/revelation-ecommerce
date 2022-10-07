@@ -7,27 +7,31 @@ function Inventory() {
       title: 'Bongani',
       price: '3',
       ref: 'REF brkn-283753',
-      image:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fclarity&psig=AOvVaw2BF6qTL07UJ9wa6mBL8eY9&ust=1665151007996000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKjiqIbhy_oCFQAAAAAdAAAAABAi"
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmnuy3iEvmjzv31G_5fq8N-zzMjDnE05Quvw&usqp=CAU"
     },
     {
       title: 'KAt',
       price: '7',
-      ref: 'REF brkn-283753'
+      ref: 'REF brkn-283753',
+      image:"https://elevationstore.fr/8454-home_default/pack-2-tee-shirts-col-rond.jpg"
     },
     {
       title: 'Sadiki',
       price: '1',
-      ref: 'REF brkn-283753'
+      ref: 'REF brkn-283753',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMqUvBHX9Qw96UjEcrykJRI1kXjOWV_uoeAA&usqp=CAU"
     },
     {
       title: 'Kamo',
       price: '5',
-      ref: 'REF brkn-283753'
+      ref: 'REF brkn-283753',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmnuy3iEvmjzv31G_5fq8N-zzMjDnE05Quvw&usqp=CAU"
     },
     {
       title: 'Moabi',
       price: '2',
-      ref: 'REF brkn-283753'
+      ref: 'REF brkn-283753',
+      image:"https://www.johncraig.co.za/wp-content/uploads/CLG02FA-CARLO-G-BRENDAN-CHECK-TROUSER-2-PLEAT-FAWN-469-V1-300x300.jpg"
     },
   ])
   return (
@@ -50,7 +54,7 @@ function Inventory() {
             <h3>{card.title}</h3>
             <p>{card.price}</p>
            
-            <div className='Image'>image container<img src={card.image}/></div>
+            <div className='Image'>image container<img src={card.image} style={{width:"100%" ,height:"100%",margin:"auto",display:"flex",alignItems:"center",marginTop:"-18px"}}/></div>
               <div  className='inputs'>
                 <div className='input'>
                   <span>-</span>
