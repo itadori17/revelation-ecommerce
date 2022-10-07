@@ -1,7 +1,8 @@
-import { getDatabase, ref, child, get,push } from "firebase/database";
+import { getDatabase, ref as ref_database, child, get,push } from "firebase/database";
+
 import React, {useEffect, useState} from 'react';
 
-import { db } from '../config/Firebase';
+import { db, storage } from '../config/Firebase';
 import './Add.css'
 import CmsCenter from "./CmsCenter";
 
@@ -51,7 +52,7 @@ function Add() {
     useEffect(() => {
       
           // read
-      const dbRef = ref(getDatabase());
+      const dbRef = ref_database(getDatabase());
       get(child(dbRef, `productInformation`)).then((snapshot) => {
      if (snapshot.exists()) {
       console.log(snapshot.val());
@@ -65,27 +66,6 @@ function Add() {
       }
       console.log(arr)
       setObjHandler(arr);
-
-    //   snapshot.forEach((Data) => {
-    //   const childDatas = Data.val();
-    //   let results =  childDatas;
-    //   let arr = [];
-    //   const obj  = results;
-    //   arrObj.push(arr)
-    //   console.log(arrObj);
-
-    //   console.log(arr);
-
-    //   // Data.forEach((childDatas) =>{
-    //   //   const Datas = childDatas.key;
-    //   //   const Keys = childDatas.val();
-     
-       
-    //   // })
-
-      
-
-    // })
      
   } else {
     console.log("No data available");
@@ -98,10 +78,7 @@ function Add() {
       },[]);
 
     const add = async  () => {
-        
-    
 
-      
       let availableSize ={
         XS:xS,
         S:s,
@@ -126,7 +103,7 @@ function Add() {
         };
 
         
-        push(ref(db, `productInformation`), {
+        push(ref_database(db, `productInformation`), {
             productInformation:productInfo
           });
     }
@@ -238,9 +215,7 @@ function Add() {
             <div className='imagecon' >
             <p><input type='file'
               
-              onChange={(text) => {
-                 setImage(text.target.value);
-               }}
+             
              ></input>+
               </p>
             </div>
