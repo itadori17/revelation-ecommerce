@@ -3,7 +3,7 @@
 .productsInfo{
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    
 }
 
 .leftSideProductsInfo{
@@ -20,25 +20,26 @@
     margin-top: 0;
 }
 .rightSideProductsInfo{
-    background-color: aqua;
+    background-color: white;
     width: 20%;
     height: 100%;
     right: 0;
     float:right;
     
-    border: 5px solid lightgray;
+    border: 5px solid black;
     border-radius: 20px;
+    margin-right: -15px;
 
 }
 .formProduct{
-    background-color: yellowgreen;
+    background-color: white;
     
     height: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .Addprod{
-    background-color: yellow;
+    background-color: white;
     height: 100%;
    
    
@@ -84,66 +85,186 @@
 }
 .Addprod textarea{
     width: 100%;
-    height: 150px;
+    height: 130px;
     margin-top: 10px;
     font-size: 17px;
     background-color: #f5f5f5;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+   
 }
 .Addsizes{
-    background-color: orange;
+    background-color: white;
+    
 }
 .sizes p{
-    font-size: 18px;
-  
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     color: gray;
    
 }
 .sizes input{
-    width: 25px;
-    height: 21px;
-    margin: 10px;
+    width:25px;
+    height: 15px;
+    margin: 30px;
+    margin-top: -40px;
+    margin-left:10px ;
+    border: 5 black;
  
 }
 .sizes label{
    
     font-size: 13px;
-    margin-left:1px ;
+    margin-left: -15px;
+    
+    position: absolute;
 }
 .Addsizes .imagecon{
     
     width: 100%;
     height: 200px;
-    margin-top: 10px;
+    margin-top: -15px;
     font-size: 17px;
     background-color: #f5f5f5;
    
 
 }
-.imagecon input{
-    width: 100%;
-    height: 150px;
+.imagecon     input{
+    
+    height: 200px;
     align-items: center;
-  opacity: 0;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+  
 }
-.imagecon p{
+.imagecon p {
+   
     text-align: center;
-    margin-top: 9px;
-    margin-left: 100px;
+    justify-content: center;
     font-size: 120px;
      color: gray;
+    
+}
+.imagecon  i{
+    
+    text-align: center;
+    justify-content: center;
+    font-size: 130px;
+     color: gray;
+}
+.Addcolor {
+  
+    
+    background-color: #7c0000;
+    margin-top: -20px;
+    
+}
+.color p{ 
+    font-size: 15px;
+  
+    margin-top: 30px;
+    color: gray;}
+
+.color input{
+    width: 30px;
+    height: 15px;
+    margin: 18px;
+    margin-top: -10px;
+   margin-left: 10px;
+  
+   
+}
+label .colorblock{
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+
     position: absolute;
+    margin-top: 4px;
+    margin-left: -17px;
 }
-.Addcolor .color{
-  
-     font-size: 18px;
-  
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: gray;
+label .colorblock1{
+    background-color: brown;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -17px;
 }
+label .colorblock2{
+    background-color: orange;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -17px;
+}
+label .colorblock3{
+    background-color: yellow;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -17px;
+}
+label .colorblock4{
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -17px;
+}
+
+ .filter input{
+    width: 100%;
+    height: 130px;
+    margin-left: 1px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+ }
+ .Buttonxontainer{
+
+    width: 100%;
+    height: 220px;
+    background-color: white;
+ }
+.Buttonxontainer input{
+     margin-top: 10px;
+     width: 100%;
+     height: 30px;
+     margin-top: 10px;
+     font-size: 17px;
+     background-color: #f5f5f5;
+}
+.Buttonxontainer p{
+    text-align: center;
+    
+}
+.Buttonxontainer button{
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    margin-top: 2px;
+    font-size: 17px;
+    background-color: #ffefad;
+  
+}
+.Buttonxontainer .button2  {
+    background-color: #80D0A0;
+} 
+.Buttonxontainer .button3{
+    background-color: #F25454;
+} 
+
+ 
