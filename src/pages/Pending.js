@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import '../styles/pending.css'
 
 function Pending() {
+
+  
   const [cards] = useState([
     {
       title: 'Bongani',
