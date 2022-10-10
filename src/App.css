@@ -2,19 +2,21 @@
   margin:0;
   padding:0;
   text-decoration: none;
-
+  overflow-y: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .container{
   display:flex;
   width: 100%;
-  
  
+
 }
 .main{
   width: 100%;
   padding: 20px;
-
   
+
 }
 .sidebar{
   background: #000;

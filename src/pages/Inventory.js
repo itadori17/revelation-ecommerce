@@ -36,15 +36,16 @@ function Inventory() {
   ])
   return (
     <div  className='InventoryPage'>
+      <h1>Inventory</h1>
       <Add/>
        <div className='Inventorycontainer'>
           <div className='InventoryItems'>
 
-               <div className='Inventoryinput' >
+               {/* <div className='Inventoryinput' >
                    <input type="text" placeholder='Search Inventory'  ></input>
-               </div>
+               </div> */}
                
- 
+                    
                    <div className='container'>
         
                           <div className='cardrs'>
