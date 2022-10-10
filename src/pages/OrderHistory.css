@@ -1,0 +1,14 @@
+.Orderhistory{
+
+    
+    width: 100%;
+    height: 80%;
+    scroll-behavior: smooth;
+
+    margin-left:10px;
+}
+.Orderhistory .Ordercontainer{
+    width: 80%;
+    height: 80%;overflow-y: scroll;
+    margin: auto;
+}
