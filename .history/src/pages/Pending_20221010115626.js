@@ -63,12 +63,7 @@ function Pending() {
             <button className='btn' onClick={togglePopup} >View Order</button>
 
             {isOpen && <Popup 
-            handleClose={togglePopup}
-              content = {<div>
-                <h2>{card.title}</h2>
-              <p>{card.ref}</p>
-              </div>}
-              />}
+            }
           </div>
             ))
           }

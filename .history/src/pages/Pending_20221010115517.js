@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import '../styles/pending.css';
-import Popup from './Popup';
+import React, { useState } from 'react'
+import '../styles/pending.css'
 
 function Pending() {
 
@@ -62,13 +61,7 @@ function Pending() {
             <p>{card.ref}</p>
             <button className='btn' onClick={togglePopup} >View Order</button>
 
-            {isOpen && <Popup 
-            handleClose={togglePopup}
-              content = {<div>
-                <h2>{card.title}</h2>
-              <p>{card.ref}</p>
-              </div>}
-              />}
+            {isOpen }
           </div>
             ))
           }

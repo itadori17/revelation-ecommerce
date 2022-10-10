@@ -1,6 +1,6 @@
 .popup-box {
   position: fixed;
-  background-color: #F8AFA6;
+  background-color: rgba(227, 83, 240, 0.877);
   left: 0;
   top: 0;
   width: 127vh;
@@ -13,7 +13,7 @@
   position: relative;
   width: 90%;
   min-height: 300px;
-  background-color: #fff;
+  background-color: '#fff';
   border: 1px solid #999;
   border-radius: 4px;
   margin: 20px auto;
