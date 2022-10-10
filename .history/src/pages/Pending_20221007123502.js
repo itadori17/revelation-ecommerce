@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import '../styles/pending.css'
 
 function Pending() {
-
-  
   const [cards] = useState([
     {
       title: 'Bongani',
@@ -55,6 +53,7 @@ function Pending() {
             <p>{card.price}</p>
             <p>{card.ref}</p>
             <button className='btn'>View Order</button>
+            
           </div>
             ))
           }
