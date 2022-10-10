@@ -1,6 +1,7 @@
 import { getDatabase, ref as ref_database, child, get,push } from "firebase/database";
 
 import React, {useEffect, useState} from 'react';
+import { uid } from "uid";
 
 import { db, storage } from '../config/Firebase';
 import './Add.css'
@@ -46,14 +47,14 @@ function Add() {
     const [xXxl, setSize3Xl] = useState("");
 
 
-    const [ojbHandler, setObjHandler] = useState([]);
-    const arrObj = [];
-  
+      const [ojbHandler, setObjHandler] = useState([]);
+      const arrObj = [];
+      const uidd = uid();
     useEffect(() => {
       
           // read
       const dbRef = ref_database(getDatabase());
-      get(child(dbRef, `productInformation`)).then((snapshot) => {
+      get(child(dbRef, `${uidd}`)).then((snapshot) => {
      if (snapshot.exists()) {
       console.log(snapshot.val());
       let keys = Object.keys(snapshot.val())
@@ -103,8 +104,8 @@ function Add() {
         };
 
         
-        push(ref_database(db, `productInformation`), {
-            productInformation:productInfo
+        push(ref_database(db, `${uidd}/`), {
+            productInfo
           });
     }
 
