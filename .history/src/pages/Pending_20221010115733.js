@@ -64,11 +64,9 @@ function Pending() {
 
             {isOpen && <Popup 
             handleClose={togglePopup}
-              content = {<div>
-                <h2>{card.title}</h2>
-              <p>{card.ref}</p>
-              </div>}
-              />}
+              content = {<div></div>}
+              <h2>Til</h2>
+          }
           </div>
             ))
           }

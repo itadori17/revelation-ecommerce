@@ -66,7 +66,7 @@ function Pending() {
             handleClose={togglePopup}
               content = {<div>
                 <h2>{card.title}</h2>
-              <p>{card.ref}</p>
+              <p>This is a sample for a popup</p>
               </div>}
               />}
           </div>
