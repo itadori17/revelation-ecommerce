@@ -2,8 +2,18 @@ import { getDatabase, ref as ref_database, child, get,push } from "firebase/data
 
 import React, {useEffect, useState} from 'react';
 import { uid } from "uid";
+import { db } from "../config/Firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  setDoc,
+  doc,
+  Timestamp
+} from "firebase/firestore";
 
-import { db, storage } from '../config/Firebase';
 import './Add.css'
 import CmsCenter from "./CmsCenter";
 
@@ -28,11 +38,13 @@ function Add() {
     const [productName, setProductName] = useState("");
     const [image, setImage] = useState("");
     const [Price, setPrice] = useState("");
-    const [About, setAboutProduct] = useState("");
+    const [description, setDescription] = useState("");
     const [Size, setSize] = useState("");
     const [Colors, setColors] = useState("");
-    const [Filters, setFilter] = useState("");
-    const [productTimeStamp, setProductTimeStamp] = useState(today);
+   
+   const [ productCode,  setProductCode] =useState("")
+    const usersCollectionRef = collection(db, "products");
+
     const [allInfo, setAllInfo] = useState([]);
 
 
@@ -78,36 +90,23 @@ function Add() {
         
       },[]);
 
-    const add = async  () => {
-
-      let availableSize ={
-        XS:xS,
-        S:s,
-        M:m,
-        L:l,
-        X:xL,
-        XXL:xXl,
-        XXXL:xXxl
-      }
-        let productInfo = {
-          brandname: brand,
-          categoryName: category,
-          productname: productName,
-          productImage: image,
-          productPrice: Price,
-          aboutProducr: About,
-          productSize: availableSize,
-          productColors: Colors,
-          productFilter: Filters,
-          timeStamp: productTimeStamp
-          
-        };
-
-        
-        push(ref_database(db, `${uidd}/`), {
-            productInfo
-          });
-    }
+      const add = async () => {
+        // const prodSizes = 'S';
+        await addDoc(usersCollectionRef, {
+          brandName: brand, category: category, description: description,price:Price,xS:xS,xL,Colors:Colors,
+          productCode: productCode, productName: productName, timeStamp: new Date()
+        }).then(async(r) => {
+           const prodColle = doc(db, "products", r.id, 'colours', 'black');
+           await setDoc(prodColle, { size: { price: "newPrice", qty: "newQty", size: "newSize" } }).then(() => {
+            console.log('Finished', r.id);
+          }).catch(er => {
+            console.log(er.message)
+          });;
+        }).catch(er => {
+            console.log(er.message)
+          });;
+    
+      };
 
 
   return (
@@ -160,7 +159,7 @@ function Add() {
             <div>
                 <textarea type='text' placeholder='About the product'
                 onChange={(text) => {
-                    setAboutProduct(text.target.value);
+                    setDescription(text.target.value);
                   }}
                 ></textarea>
             </div>
@@ -225,80 +224,81 @@ function Add() {
             {/* <select id=""  onChange={(text) => {
                     setColors(text.target.value);
                   }}>
+                
+                <option value="black">black</option>
+                <option value="red">red</option>
+                <option value="orange">orange</option>
+                <option value="yellow">yellow</option>
+                <option value="white">white</option>
                 <option value="1">Select Colors</option>
-                <option value="2">1</option>
-                <option value="3">2</option>
-                <option value="4">3</option>
-                <option value="5">4</option>
+                <input type="checkbox" value="M" placeholder='Available size'
+                onChange={(text) => {
+                    setSizeM(text.target.value);
+                  }}
+                ></input>
             </select> */}
                  <div className='Addcolor'>
                   <div className='color'>
                     <p>Available colors</p>
-                     <input type="checkbox" value="XS" placeholder='Available size'
+                     <input type="checkbox" value="black" 
                         onChange={(text) => {
-                         setSize(text.target.value);
+                          setColors(text.target.value);
                           }}
                        ></input>
                       <label><div className='colorblock'></div></label>
                
                  
-                      <input type="checkbox" value="S" placeholder='Available size'
+                      <input type="checkbox" value="red" 
                         onChange={(text) => {
-                         setSize(text.target.value);
+                          setColors(text.target.value);
                          }}
                       ></input>
                       <label><div className='colorblock1'></div></label>
                
-                      <input type="checkbox" value="M" placeholder='Available size'
+                      <input type="checkbox" value="orange" 
                        onChange={(text) => {
-                         setSize(text.target.value);
+                        setColors(text.target.value);
                         }}
                       ></input>
                      <label><div className='colorblock2'></div></label>
-                   <input type="checkbox" value="M" placeholder='Available size'
+                   <input type="checkbox" value="yellow" 
                      onChange={(text) => {
-                      setSize(text.target.value);
+                      setColors(text.target.value);
                        }}
                     ></input>
                  <label><div className='colorblock3'></div></label>
                  
-                  <input type="checkbox" value="L" placeholder='Available size'
+                  <input type="checkbox" value="white" 
                    onChange={(text) => {
                     setSize(text.target.value);
                   }}
                    ></input>
                   <label><div className='colorblock4'></div></label>
               
-              <div className='filter'>  
-                <input type='text' placeholder='Notes' onChange={(text) => {
-                    setFilter(text.target.value);
-                  }}></input>
-                </div>
+            
            
             </div>
            
             </div>
             <div className='Buttonxontainer'>
                  <input type="text" placeholder='Product Code' onChange={(text) => {
-                    setProductName(text.target.value);
+                    setProductCode(text.target.value);
                    }} >
                  </input>
                 <p>or</p>
                 <button className='button1'>
                   GENERATE CODE
                 </button >
-                <button className='button2'>
-                 ADD TO STALL
-                </button>
-                <button className='button3'>
-                 CLEAR FORM
-                </button>
-            </div>
-            <button
+                <button
             type="button"
             className="btn btn-secondary btn-block"
             onClick={add}
             >Add</button>
+                <button className='button3'>
+                 CLEAR FORM
+                </button>
+            </div>
+            
         </form>
         </div>
         
