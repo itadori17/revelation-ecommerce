@@ -5,12 +5,11 @@
   overflow-y: hidden;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 .container{
   display:flex;
   width: 100%;
-  padding: 0px 20px;
+ 
 
 }
 .main{
@@ -63,6 +62,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 
+* {
+	
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+}
 
 :root {
 	--mainColor: #000000;
@@ -109,50 +115,4 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
-}
-
-
-/* Media Responsiveness */
-
-@media only screen and (max-width: 1024px) {
-	header .nav-btn {
-		visibility: visible;
-		opacity: 1;
-		
-	}
-
-	header nav {
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: var(--mainColor);
-		transition: 1s;
-		transform: translateY(-100vh);
-	}
-
-	header .responsive_nav {
-		transform: none;
-	}
-
-	nav .nav-close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-	}
-
-	nav a {
-		font-size: 1.5rem;
-	}
-
-  .card{
-    flex: 0 0 100%;
-    max-width: 100%;
-}
 }
