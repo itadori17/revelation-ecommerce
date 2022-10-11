@@ -136,10 +136,10 @@ function Add() {
                         setCategory(text.target.value);
                      }} >
                       <option value="Category 1">Select Category</option>
-                         <option value="Category 2">Summer</option>
-                         <option value="Category 3">Winter</option>
-                         <option value="Category 4">Accessories</option>
-                         <option value="Category 5">Sale</option>
+                         <option value="Category 2"></option>
+                         <option value="Category 3">Category 2</option>
+                         <option value="Category 4">Category 3</option>
+                         <option value="Category 5">Category 4</option>
                      </select>
                      <button>+</button>
             </div>
