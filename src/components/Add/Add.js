@@ -1,6 +1,6 @@
-import { getDatabase, ref as ref_database, child, get,push } from "firebase/database";
+import { getDatabase, ref as ref_database, child, get, push } from "firebase/database";
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { uid } from "uid";
 import { db } from "../config/Firebase";
 import {
@@ -21,207 +21,208 @@ function Add() {
 
   var today = new Date();
   let dd = today.getDate();
-  let mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+  let mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
   let yyyy = today.getFullYear();
   let minutes = today.getMinutes();
   let hour = today.getHours();
   let sec = today.getSeconds();
-  if(dd<10){
-    dd='0'+dd
+  if (dd < 10) {
+    dd = '0' + dd
   }
-  if(mm<10){
-    mm='0'+mm
+  if (mm < 10) {
+    mm = '0' + mm
   }
-  today = yyyy+'-'+mm+'-'+dd+'-'+ hour + ":" + minutes +':' + sec;
-    const [brand, setBrand] = useState("");
-    const [category, setCategory] = useState("");
-    const [productName, setProductName] = useState("");
-    const [image, setImage] = useState("");
-    const [Price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [Size, setSize] = useState("");
-    const [Colors, setColors] = useState("");
-   
-   const [ productCode,  setProductCode] =useState("")
-    const usersCollectionRef = collection(db, "products");
+  today = yyyy + '-' + mm + '-' + dd + '-' + hour + ":" + minutes + ':' + sec;
+  const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
+  const [productName, setProductName] = useState("");
+  const [image, setImage] = useState("");
+  const [Price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [Size, setSize] = useState("");
+  const [Colors, setColors] = useState("");
 
-    const [allInfo, setAllInfo] = useState([]);
+  const [productCode, setProductCode] = useState("")
+  const usersCollectionRef = collection(db, "products");
 
-
+  const [allInfo, setAllInfo] = useState([]);
 
 
-    const [xS, setSizeXs] = useState("");
-    const [s, setSizeS] = useState("");
-    const [m, setSizeM] = useState("");
-    const [l, setSizeL] = useState("");
-    const [xL, setSizeXl] = useState("");
-    const [xXl, setSize2Xl] = useState("");
-    const [xXxl, setSize3Xl] = useState("");
 
 
-      const [ojbHandler, setObjHandler] = useState([]);
-      const arrObj = [];
-      const uidd = uid();
-    useEffect(() => {
-      
-          // read
-      const dbRef = ref_database(getDatabase());
-      get(child(dbRef, `${uidd}`)).then((snapshot) => {
-     if (snapshot.exists()) {
-      console.log(snapshot.val());
-      let keys = Object.keys(snapshot.val())
-      const Key = snapshot.key;
-      const Data = snapshot.val();
+  const [xS, setSizeXs] = useState("");
+  const [s, setSizeS] = useState("");
+  const [m, setSizeM] = useState("");
+  const [l, setSizeL] = useState("");
+  const [xL, setSizeXl] = useState("");
+  const [xXl, setSize2Xl] = useState("");
+  const [xXxl, setSize3Xl] = useState("");
 
-      let arr = []
-      for (var x = 0; x < keys.length; x++){
-        arr.push(Data[keys[x]])
+
+  const [ojbHandler, setObjHandler] = useState([]);
+  const arrObj = [];
+  const uidd = uid();
+  useEffect(() => {
+
+    // read
+    const dbRef = ref_database(getDatabase());
+    get(child(dbRef, `${uidd}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        let keys = Object.keys(snapshot.val())
+        const Key = snapshot.key;
+        const Data = snapshot.val();
+
+        let arr = []
+        for (var x = 0; x < keys.length; x++) {
+          arr.push(Data[keys[x]])
+        }
+        console.log(arr)
+        setObjHandler(arr);
+
+      } else {
+        console.log("No data available");
       }
-      console.log(arr)
-      setObjHandler(arr);
-     
-  } else {
-    console.log("No data available");
-  }
-}).catch((error) => {
-  console.error(error);
-});
-        
-        
-      },[]);
+    }).catch((error) => {
+      console.error(error);
+    });
 
-      const add = async () => {
-        // const prodSizes = 'S';
-        await addDoc(usersCollectionRef, {
-          brandName: brand, category: category, description: description,price:Price,xS:xS,xL,Colors:Colors,
-          productCode: productCode, productName: productName, timeStamp: new Date()
-        }).then(async(r) => {
-           const prodColle = doc(db, "products", r.id, 'colours', 'black');
-           await setDoc(prodColle, { size: { price: "newPrice", qty: "newQty", size: "newSize" } }).then(() => {
-            console.log('Finished', r.id);
-          }).catch(er => {
-            console.log(er.message)
-          });;
-        }).catch(er => {
-            console.log(er.message)
-          });;
-    
-      };
+
+  }, []);
+
+  const add = async () => {
+    // const prodSizes = 'S';
+    let colour, size;
+    await addDoc(usersCollectionRef, {
+      brandName: brand, category: category, description: description, price: Price, xS: xS, xL, Colors: Colors,
+      productCode: productCode, productName: productName, timeStamp: new Date()
+    }).then(async (r) => {
+      const prodColle = doc(db, "products", r.id, 'colours', colour + '_' + size);
+      await setDoc(prodColle, { price: "newPrice", qty: "newQty", size: "newSize", colour: colour }).then(() => {
+        console.log('Finished', r.id);
+      }).catch(er => {
+        console.log(er.message)
+      });;
+    }).catch(er => {
+      console.log(er.message)
+    });;
+
+  };
 
 
   return (
-    
-    <CmsCenter/>,
-   
-    
-       <div className='rightSideProductsInfo'>
-        <form className='formProduct'>
-           <div className='Addprod'>
-              <div className='prod'>
-                 <p>Add Product</p>
-                    <select  onChange={(text) => {
-                       setBrand(text.target.value);
-                      }}>
-                       <option value="1">Select Brand</option>
-                          <option value="Brand 1">Brand 1</option>
-                          <option value="Brand 2">Brand 2</option>
-                          <option value="Brand 3">Brand 3</option>
-                          <option value="Brand 4">Brand 4</option>
-                    </select>
-                    <button>+</button>
-              </div>
-              <div >
-                    <select name="" id=""  onChange={(text) => {
-                        setCategory(text.target.value);
-                     }} >
-                      <option value="Category 1">Select Category</option>
-                         <option value="Category 2">Summer</option>
-                         <option value="Category 3">Winter</option>
-                         <option value="Category 4">Accessories</option>
-                         <option value="Category 5">Sale</option>
-                     </select>
-                     <button>+</button>
-            </div>
-            
-               <div>
-                   <input type="text" placeholder='Product Name' onChange={(text) => {
-                    setProductName(text.target.value);
-                   }} ></input>
-               </div>
-               <div>
-                <input type='number' step="0.01" placeholder='Price'
-                   onChange={(text) => {
-                    setPrice(text.target.value);
-                  }}
-                ></input>
-               </div>
-            
-            <div>
-                <textarea type='text' placeholder='About the product'
-                onChange={(text) => {
-                    setDescription(text.target.value);
-                  }}
-                ></textarea>
-            </div>
-            </div> 
 
-            <div className='Addsizes'>
-               <div className='sizes'>
-                  <p>Available sizes</p>
-                    <input type="checkbox" value="XS" placeholder='Available size'
-                      onChange={(text) => {
-                       setSizeXs(text.target.value);
-                       }}
-                     ></input>
-                    <label>XS</label>
-                    <input type="checkbox" value="S" placeholder='Available size'
-                      onChange={(text) => {
-                        setSizeS(text.target.value);
-                        }}
-                     ></input>
-                    <label>       S       </label>
-                <input type="checkbox" value="M" placeholder='Available size'
-                onChange={(text) => {
-                    setSizeM(text.target.value);
-                  }}
-                ></input>
-                 <label>        M     </label>
-                <input type="checkbox" value="L" placeholder='Available size'
-                onChange={(text) => {
-                    setSizeL(text.target.value);
-                  }}
-                ></input>
-                 <label>    L</label>
-                <input type="checkbox" value="XL" placeholder='Available size'
-                onChange={(text) => {
-                    setSizeXl(text.target.value);
-                  }}
-                ></input>
-                <label>XL</label>
-                <input type="checkbox" value="2XL" placeholder='Available size'
-                onChange={(text) => {
-                    setSize2Xl(text.target.value);
-                  }}
-                ></input>
-                  <label>2XL</label>
-                <input type="checkbox" value="3XL" placeholder='Available size'
-                onChange={(text) => {
-                    setSize3Xl(text.target.value);
-                  }}
-                ></input>
-                <label>3XL</label>
-            </div>
-          
-            <div className='imagecon' >
+    <CmsCenter />,
+
+
+    <div className='rightSideProductsInfo'>
+      <form className='formProduct'>
+        <div className='Addprod'>
+          <div className='prod'>
+            <p>Add Product</p>
+            <select onChange={(text) => {
+              setBrand(text.target.value);
+            }}>
+              <option value="1">Select Brand</option>
+              <option value="Brand 1">Brand 1</option>
+              <option value="Brand 2">Brand 2</option>
+              <option value="Brand 3">Brand 3</option>
+              <option value="Brand 4">Brand 4</option>
+            </select>
+            <button>+</button>
+          </div>
+          <div >
+            <select name="" id="" onChange={(text) => {
+              setCategory(text.target.value);
+            }} >
+              <option value="Category 1">Select Category</option>
+              <option value="Category 2">Summer</option>
+              <option value="Category 3">Winter</option>
+              <option value="Category 4">Accessories</option>
+              <option value="Category 5">Sale</option>
+            </select>
+            <button>+</button>
+          </div>
+
+          <div>
+            <input type="text" placeholder='Product Name' onChange={(text) => {
+              setProductName(text.target.value);
+            }} ></input>
+          </div>
+          <div>
+            <input type='number' step="0.01" placeholder='Price'
+              onChange={(text) => {
+                setPrice(text.target.value);
+              }}
+            ></input>
+          </div>
+
+          <div>
+            <textarea type='text' placeholder='About the product'
+              onChange={(text) => {
+                setDescription(text.target.value);
+              }}
+            ></textarea>
+          </div>
+        </div>
+
+        <div className='Addsizes'>
+          <div className='sizes'>
+            <p>Available sizes</p>
+            <input type="checkbox" value="XS" placeholder='Available size'
+              onChange={(text) => {
+                setSizeXs(text.target.value);
+              }}
+            ></input>
+            <label>XS</label>
+            <input type="checkbox" value="S" placeholder='Available size'
+              onChange={(text) => {
+                setSizeS(text.target.value);
+              }}
+            ></input>
+            <label>       S       </label>
+            <input type="checkbox" value="M" placeholder='Available size'
+              onChange={(text) => {
+                setSizeM(text.target.value);
+              }}
+            ></input>
+            <label>        M     </label>
+            <input type="checkbox" value="L" placeholder='Available size'
+              onChange={(text) => {
+                setSizeL(text.target.value);
+              }}
+            ></input>
+            <label>    L</label>
+            <input type="checkbox" value="XL" placeholder='Available size'
+              onChange={(text) => {
+                setSizeXl(text.target.value);
+              }}
+            ></input>
+            <label>XL</label>
+            <input type="checkbox" value="2XL" placeholder='Available size'
+              onChange={(text) => {
+                setSize2Xl(text.target.value);
+              }}
+            ></input>
+            <label>2XL</label>
+            <input type="checkbox" value="3XL" placeholder='Available size'
+              onChange={(text) => {
+                setSize3Xl(text.target.value);
+              }}
+            ></input>
+            <label>3XL</label>
+          </div>
+
+          <div className='imagecon' >
             <p><input type='file'
-              
-             
-             ></input>+
-              </p>
-            </div>
-         
-            </div>
-            {/* <select id=""  onChange={(text) => {
+
+
+            ></input>+
+            </p>
+          </div>
+
+        </div>
+        {/* <select id=""  onChange={(text) => {
                     setColors(text.target.value);
                   }}>
                 
@@ -237,74 +238,74 @@ function Add() {
                   }}
                 ></input>
             </select> */}
-                 <div className='Addcolor'>
-                  <div className='color'>
-                    <p>Available colors</p>
-                     <input type="checkbox" value="black" 
-                        onChange={(text) => {
-                          setColors(text.target.value);
-                          }}
-                       ></input>
-                      <label><div className='colorblock'></div></label>
-               
-                 
-                      <input type="checkbox" value="red" 
-                        onChange={(text) => {
-                          setColors(text.target.value);
-                         }}
-                      ></input>
-                      <label><div className='colorblock1'></div></label>
-               
-                      <input type="checkbox" value="orange" 
-                       onChange={(text) => {
-                        setColors(text.target.value);
-                        }}
-                      ></input>
-                     <label><div className='colorblock2'></div></label>
-                   <input type="checkbox" value="yellow" 
-                     onChange={(text) => {
-                      setColors(text.target.value);
-                       }}
-                    ></input>
-                 <label><div className='colorblock3'></div></label>
-                 
-                  <input type="checkbox" value="white" 
-                   onChange={(text) => {
-                    setSize(text.target.value);
-                  }}
-                   ></input>
-                  <label><div className='colorblock4'></div></label>
-              
-            
-           
-            </div>
-           
-            </div>
-            <div className='Buttonxontainer'>
-                 <input type="text" placeholder='Product Code' onChange={(text) => {
-                    setProductCode(text.target.value);
-                   }} >
-                 </input>
-                <p>or</p>
-                <button className='button1'>
-                  GENERATE CODE
-                </button >
-                <button
+        <div className='Addcolor'>
+          <div className='color'>
+            <p>Available colors</p>
+            <input type="checkbox" value="black"
+              onChange={(text) => {
+                setColors(text.target.value);
+              }}
+            ></input>
+            <label><div className='colorblock'></div></label>
+
+
+            <input type="checkbox" value="red"
+              onChange={(text) => {
+                setColors(text.target.value);
+              }}
+            ></input>
+            <label><div className='colorblock1'></div></label>
+
+            <input type="checkbox" value="orange"
+              onChange={(text) => {
+                setColors(text.target.value);
+              }}
+            ></input>
+            <label><div className='colorblock2'></div></label>
+            <input type="checkbox" value="yellow"
+              onChange={(text) => {
+                setColors(text.target.value);
+              }}
+            ></input>
+            <label><div className='colorblock3'></div></label>
+
+            <input type="checkbox" value="white"
+              onChange={(text) => {
+                setSize(text.target.value);
+              }}
+            ></input>
+            <label><div className='colorblock4'></div></label>
+
+
+
+          </div>
+
+        </div>
+        <div className='Buttonxontainer'>
+          <input type="text" placeholder='Product Code' onChange={(text) => {
+            setProductCode(text.target.value);
+          }} >
+          </input>
+          <p>or</p>
+          <button className='button1'>
+            GENERATE CODE
+          </button >
+          <button
             type="button"
             className="btn btn-secondary btn-block"
             onClick={add}
-            >Add</button>
-                <button className='button3'>
-                 CLEAR FORM
-                </button>
-            </div>
-            
-        </form>
+          >Add</button>
+          <button className='button3'>
+            CLEAR FORM
+          </button>
         </div>
-        
-        
-    
-  
+
+      </form>
+    </div>
+
+
+
+
   )
 }
 
