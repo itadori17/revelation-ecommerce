@@ -39,6 +39,7 @@ function Add() {
     const [image, setImage] = useState("");
     const [Price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [Quantity,setquantity] =useState("");
     const [Size, setSize] = useState("");
     const [Colors, setColors] = useState("");
    
@@ -202,7 +203,7 @@ function Add() {
                      </select>
                   </div>
                   <div>
-                    <input type="text" placeholder='QTy' onChange={(text) => {
+                    <input type="text" placeholder='Qantity' onChange={(text) => {
                        setProductCode(text.target.value);
                      }} >
                      </input>
