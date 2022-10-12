@@ -39,10 +39,10 @@ function Inventory() {
       image:"https://www.johncraig.co.za/wp-content/uploads/CLG02FA-CARLO-G-BRENDAN-CHECK-TROUSER-2-PLEAT-FAWN-469-V1-300x300.jpg"
     },
   ])
-  const [allDocs, setAllDocs] = useState([]);
-  const [productsObj, setProductsObj] = useState({});
+
   useEffect(() => {
     getDocs(collection(db, "products")).then((res) => {
+      
       res.forEach((doc) => {
         getDocs(collection(db, "products", doc.id, 'colours')).then((response) => {
           // doc.data() is never undefined for query doc snapshots
