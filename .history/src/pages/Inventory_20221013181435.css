@@ -12,8 +12,8 @@
 
 }
 .Inventorycontainer{
-   width: 78%;
- height: 73%;
+   width: 76%;
+ height: 70%;
    
   margin-top: 20px;
  
@@ -22,14 +22,14 @@
   overflow-y: scroll;
 }
 ::-webkit-scrollbar{
-    width: 3px;
+    width: 0px;
 }
 ::-webkit-scrollbar-thumb{
-    background-color: rgb(103, 104, 104);
+    background-color: aqua;
 }
 .Inventorycontainer .InventoryItems{
 
-    width: 80%;
+    width: 90%;
    
 
     align-items: center;
@@ -85,7 +85,7 @@ margin-top: 20px;
 }
 .cardz .Image{
     width: 40%;
-    background-color: rgb(190, 190, 185);
+    background-color: yellow;
     float: right;
     right: 0;
     height: 150px;
@@ -93,7 +93,7 @@ margin-top: 20px;
     margin-top: -120px;
 }
 .cardz .inputs{
-    background-color: rgba(245, 245, 245, 0.86);
+    background-color: rgba(255, 204, 0, 0.86);
    
     
     display: flex;
