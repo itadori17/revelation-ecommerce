@@ -1,6 +1,6 @@
 import { getDatabase, ref as ref_database, child, get, push } from "firebase/database";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { uid } from "uid";
 import { db } from "../config/Firebase";
 import {
@@ -95,14 +95,13 @@ function Add() {
 
   const add = async () => {
     // const prodSizes = 'S';
-    let colour= "Black"
-    let size = "L";
+    let colour, size;
     await addDoc(usersCollectionRef, {
       brandName: brand, category: category, description: description, price: Price, xS: xS, xL, Colors: Colors,
       productCode: productCode, productName: productName, timeStamp: new Date()
     }).then(async (r) => {
-      const prodColle = doc(db, "products", r.id, 'colours', colour + '_' + size);
-      await setDoc(prodColle, { price: "newPrice", qty: "newQty", size: "newSize", colour: colour }).then(() => {
+      const prodColle = doc(db, "prod", r.id, 'colours', colour + '_' + size);
+      await setDoc(prodColle, { price: Price, qty: "newQty", size: Size, colour: colour }).then(() => {
         console.log('Finished', r.id);
       }).catch(er => {
         console.log(er.message)
@@ -112,7 +111,6 @@ function Add() {
     });;
 
   };
-
 
   return (
 
@@ -125,9 +123,9 @@ function Add() {
            <div className='Addprod'>
               <div className='prod'>
                  <p>Add Product</p>
-                    <select  onChange={(text) => {
-                       setBrand(text.target.value);
-                      }}>
+                    <select onChange={(text) => {
+                        setBrand(text.target.value);
+                     }}>
                        <option value="1">Select Brand</option>
                           <option value="Brand 1">Brand 1</option>
                           <option value="Brand 2">Brand 2</option>
