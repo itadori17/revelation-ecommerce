@@ -92,7 +92,8 @@ function Add() {
 
   const add = async () => {
     // const prodSizes = 'S';
-    let colour, size;
+    let colour= "Black"
+    let size = "L";
     await addDoc(usersCollectionRef, {
       brandName: brand, category: category, description: description, price: Price, xS: xS, xL, Colors: Colors,
       productCode: productCode, productName: productName, timeStamp: new Date()
