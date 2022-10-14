@@ -22,6 +22,17 @@ function Add({ path }) {
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
 
+const [image, setImage] = useState();
+console.log(image)
+const convert2base64 = e =>{
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = () =>{
+    setImage(reader.result.toString())
+  }
+  reader.readAsDataURL(file);
+};
+
   let refId = null;
 
   async function handleSubmit(e) {
@@ -33,6 +44,7 @@ function Add({ path }) {
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
       prodDescription: prodDescription.current.value,
+     
       productCode: new Date().getTime(),
     }).then(async (docRefRes) => {
       console.log("Document written with ID: ", docRefRes.id);
@@ -117,7 +129,9 @@ function Add({ path }) {
             <div>
                 <input type="alphanumeric" placeholder="Code"></input>
             </div>
-               <div>{/* <input type='file' ref={prodImage}/> */}</div>
+               <div> <input type='file' useRef={image} onChange={e => convert2base64(e)} />
+               <img src={image}  />
+               </div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
             </div>
