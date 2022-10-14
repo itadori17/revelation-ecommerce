@@ -4,6 +4,7 @@ import { doc, setDoc, addDoc } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
+import { contains } from "@firebase/util";
 
 function Add({ path }) {
   const query = collection(db, `products`);
@@ -26,7 +27,7 @@ function Add({ path }) {
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, "productsTest"), {
+    await addDoc(collection(db, "stock"), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -50,7 +51,7 @@ function Add({ path }) {
     await setDoc(
       doc(
         db,
-        "productsTest",
+        "stock",
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -64,6 +65,7 @@ function Add({ path }) {
     ).then((docRef) => {
       console.log("added: ", docRef);
     });
+
     //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
     //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
     //   // we use addDoc if we use the auto generated id in this case we are using name
@@ -161,3 +163,4 @@ function Add({ path }) {
 }
 
 export default Add;
+
