@@ -1,0 +1,162 @@
+
+
+.productsInfo{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+}
+
+
+.rightSideProductsInfo{
+    background-color: white;
+    width: 20%;
+  height:75%;
+  float: right;
+  right: 100px;
+  margin-left: 16px;
+    
+   margin-top: 0px;
+   
+  
+ 
+
+}
+.formProduct{
+    background-color: white;
+    overflow-y: scroll;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.Addprod{
+    background-color:rgb(39, 39, 26);
+  
+  
+   
+}
+.prod p{
+   color: gray;
+   margin-top: 10px;
+   font-size: 17px;
+}
+.Addprod select{
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 10px;
+   
+}
+.Addprod button{
+    width: 80%;
+    height: 30px;
+    font-size: 18px;
+   margin-top: 240px;
+   background-color: #7c0000;
+   color: #debfbf;
+ padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 40px;
+}
+
+.Addprod input{
+  
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.Addprod textarea{
+    width: 100%;
+    height: 130px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+   
+}
+.Addsizes{
+   
+    background-color:#40d429;
+    margin-top: 20px;
+    
+}
+.sizes input{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.sizes select{
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 10px;
+    
+}
+.sizes  button{
+    width: 80%;
+    height: 30px;
+    font-size: 18px;
+   margin-top: 240px;
+   background-color: #7c0000;
+   color: #debfbf;
+ padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 40px;
+}
+ .Buttonxontainer{
+
+    width: 100%;
+    height: 260px;
+    background-color: #f5f5f5;
+ }
+.Buttonxontainer input{
+     margin-top: 10px;
+     width: 100%;
+     height: 30px;
+     margin-top: 10px;
+     font-size: 17px;
+     background-color: white;
+}
+.Buttonxontainer p{
+    text-align: center;
+   margin-top: 1px;
+}
+.Buttonxontainer button{
+    text-align: center;
+   
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #ffefad;
+  
+}
+.Buttonxontainer .button2  {
+    background-color: #80D0A0;
+} 
+.Buttonxontainer .button3{
+    background-color: #F25454;
+} 
+
+ 

@@ -84,9 +84,9 @@ function Inventory() {
             <div className='Image'>image container<img src={card.image} style={{width:"100%" ,height:"100%",margin:"auto",display:"flex",alignItems:"center",marginTop:"-18px"}}/></div>
               <div  className='inputs'>
                 <div className='input'>
-                  <span>-</span>
+                 <button className='btnInven' >-</button>
                     <   input type="text" placeholder='3'  ></input>
-                 <span>+</span>
+                    <button className='btnInvent'>+</button>
               </div>
                 
                 <div className='btns'>
