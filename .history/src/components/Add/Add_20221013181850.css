@@ -10,11 +10,11 @@
 
 .rightSideProductsInfo{
     background-color: white;
-    width: 18%;
+    width: 20%;
   height:75%;
   float: right;
   right: 100px;
-  margin-left: 15px;
+  margin-left: 16px;
     
    margin-top: 0px;
    
@@ -30,7 +30,7 @@
     margin-right: 5px;
 }
 .Addprod{
-    background-color:rgb(214, 214, 212);
+    background-color:rgb(39, 39, 26);
   
   
    
@@ -86,7 +86,7 @@
 }
 .Addsizes{
    
-    background-color:#f3f3f3;
+    background-color:#40d429;
     margin-top: 20px;
     
 }
@@ -116,8 +116,8 @@
     height: 30px;
     font-size: 18px;
    margin-top: 240px;
-   background-color: #56d845;
-   color: #000000;
+   background-color: #7c0000;
+   color: #debfbf;
  padding: 10px;
   align-items: center;
   justify-content: center;
@@ -156,7 +156,7 @@
     background-color: #80D0A0;
 } 
 .Buttonxontainer .button3{
-    background-color: #ff0000;
+    background-color: #F25454;
 } 
 
  
