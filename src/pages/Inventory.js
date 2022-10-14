@@ -7,6 +7,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 function Inventory() {
+
   const [cards] = useState([
     {
       title: 'Bongani',
@@ -39,14 +40,18 @@ function Inventory() {
       image:"https://www.johncraig.co.za/wp-content/uploads/CLG02FA-CARLO-G-BRENDAN-CHECK-TROUSER-2-PLEAT-FAWN-469-V1-300x300.jpg"
     },
   ])
-
+  const handlesubmit=event=>{
+  event.preventDefault()
+ }
   useEffect(() => {
+   
     getDocs(collection(db, "products")).then((res) => {
       
       res.forEach((doc) => {
         getDocs(collection(db, "products", doc.id, 'colours')).then((response) => {
           // doc.data() is never undefined for query doc snapshots
           response.forEach((e) => {
+            
           console.log(e.id, " => ", e.data());
           })
         });

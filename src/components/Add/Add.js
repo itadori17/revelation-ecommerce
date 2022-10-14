@@ -16,9 +16,10 @@ import {
 
 import './Add.css'
 import CmsCenter from "./CmsCenter";
+import { contains } from "@firebase/util";
 
 function Add() {
-
+ 
   var today = new Date();
   let dd = today.getDate();
   let mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
@@ -65,6 +66,9 @@ function Add() {
   const [ojbHandler, setObjHandler] = useState([]);
   const arrObj = [];
   const uidd = uid();
+  
+  const [show,setShow]=useState(true);
+
   useEffect(() => {
 
     // read
@@ -93,7 +97,8 @@ function Add() {
 
   }, []);
 
-  const add = async () => {
+  const add = async (event) => {
+    event.preventDefault();
     // const prodSizes = 'S';
     let colour, size;
     await addDoc(usersCollectionRef, {
@@ -112,7 +117,7 @@ function Add() {
 
   };
 
-
+   
   return (
 
     
@@ -123,7 +128,7 @@ function Add() {
         <form className='formProduct'>
            <div className='Addprod'>
               <div className='prod'>
-                 <p>Add Product</p>
+                 <h2>Add Product</h2>
                     <select  onChange={(text) => {
                        setBrand(text.target.value);
                       }}>
@@ -172,59 +177,65 @@ function Add() {
                  </input>
                </div>
                <div>
-                   <button>ADD PRODUCT</button>
+                   <button type="submit" onClick={()=>setShow (!show ,add)} >
+                    
+                    ADD PRODUCT{show===true ?'Hide':'Show'}
+                  </button>
                </div>
 
             </div> 
-
-            <div className='Addsizes'>
-               <div className='sizes'>
-                  <h2>Product features</h2>
-                  <div>
-                     <select name="" id=""  onChange={(text) => {
-                        setColors(text.target.value);
-                     }} >
-                        <option    >Select Colour</option>
-                        <option value="Black">Black</option>
-                         <option value="Brown">Brown</option>
-                         <option value="Orange">Orange</option>
-                         <option value="Yellow">Yellow</option>
-                         <option value="White">White</option>
-                     </select>
-                  </div>
-                  <div>
-                    <select name="" id=""  onChange={(text) => {
-                        setSize(text.target.value);
-                     }} >
-                        <option    >Select Sizes</option>
-                        <option value="XS">XS</option>
-                         <option value="s">S</option>
-                         <option value="Orange">M</option>
-                         <option value="Yellow">L</option>
-                         <option value="White">XL</option>
-                         <option value="White">2XL</option>
-                         <option value="White">3XL</option>
-                     </select>
-                  </div>
-                  <div>
-                    <input type="text" placeholder='Qantity' onChange={(text) => {
-                       setQuantity(text.target.value);
-                     }} >
-                     </input>
-                 </div>
-                 <div>
-                    <input type='number' step="0.01" placeholder='Price'
-                    onChange={(text) => {
-                    setPrice(text.target.value);
-                   }}
-                  ></input>
-                 </div>
-                 <div>
-                   <button>Submit</button>
+           { show && 
+             <div className='Addsizes' >
+             <div className='sizes'>
+                <h2>Product features</h2>
+                <div>
+                   <select name="" id=""  onChange={(text) => {
+                      setColors(text.target.value);
+                   }} >
+                      <option    >Select Colour</option>
+                      <option value="Black">Black</option>
+                       <option value="Brown">Brown</option>
+                       <option value="Orange">Orange</option>
+                       <option value="Yellow">Yellow</option>
+                       <option value="White">White</option>
+                   </select>
+                </div>
+                <div>
+                  <select name="" id=""  onChange={(text) => {
+                      setSize(text.target.value);
+                   }} >
+                      <option    >Select Sizes</option>
+                      <option value="XS">XS</option>
+                       <option value="s">S</option>
+                       <option value="Orange">M</option>
+                       <option value="Yellow">L</option>
+                       <option value="White">XL</option>
+                       <option value="White">2XL</option>
+                       <option value="White">3XL</option>
+                   </select>
+                </div>
+                <div>
+                  <input type="text" placeholder='Qantity' onChange={(text) => {
+                     setQuantity(text.target.value);
+                   }} >
+                   </input>
                </div>
-            </div>
-            
-            </div>
+               <div>
+                  <input type='number' step="0.01" placeholder='Price'
+                  onChange={(text) => {
+                  setPrice(text.target.value);
+                 }}
+                ></input>
+               </div>
+               <div>
+                 <button>Submit</button>
+             </div>
+          </div>
+          
+          </div>
+           }
+           
+
             <div className='Buttonxontainer'>
                  
                 <p>or</p>
@@ -233,7 +244,8 @@ function Add() {
                 </button >
                 <button type="button"
             className="btn btn-secondary btn-block"
-            onClick={add}
+            onClick={ ()=>setShow (!show ,add)}
+             
           >Add</button>
           <button className='button3'>
             CLEAR FORM
@@ -248,5 +260,5 @@ function Add() {
 
   )
 }
-
+<script></script>
 export default Add
