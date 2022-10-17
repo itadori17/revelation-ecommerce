@@ -6,6 +6,8 @@ import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
 import { contains } from "@firebase/util";
 import './Add.css'
+import { FaBaby } from "react-icons/fa";
+
 
 function Add({ path }) {
   const query = collection(db, `products`);
@@ -18,6 +20,8 @@ function Add({ path }) {
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
+  const [isEdit, setIsEdit] = useState(false);
+  
   const [show,setShow]=useState(false);
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
@@ -28,7 +32,7 @@ function Add({ path }) {
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, "productsTest"), {
+    await addDoc(collection(db,`product` ), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -52,7 +56,7 @@ function Add({ path }) {
     await setDoc(
       doc(
         db,
-        "productsTest",
+        `product`,
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -78,7 +82,7 @@ function Add({ path }) {
   return (
     (<CmsCenter />),
     (
-      <div className="rightSideProductsInfo">
+      <div className="rightSideProductsInfo" >
       
         {loading && "Loading..."}
         <form className="formProduct" onSubmit={handleSubmit}>
@@ -120,14 +124,18 @@ function Add({ path }) {
                <div>{/* <input type='file' ref={prodImage}/> */}</div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
+             
             </div>
 
 
             
 
           </div>
-          { show && 
-          <div className='Addsizes' >
+         
+        </form>
+        { show && 
+          
+          <form className='Addsizes' onSubmit={colorSubmit}>
                 <h2>Product Features</h2>
                 <div className='sizes'>
                     
@@ -181,13 +189,8 @@ function Add({ path }) {
              </div>
                 <button type="submit">Add</button>
              </div>
-            </div>
+            </form >
 }
-        </form>
-        {/* <form className="formProduct" onSubmit={colorSubmit}>
-          
-        </form>
-         */}
       </div>
     )
   );
