@@ -10,28 +10,29 @@
 
 .rightSideProductsInfo{
     background-color: transparent;
-    width: 18%;
+    width: 20%;
   height:100%;
   float: right;
   right: 100px;
   margin-left: 15px;
-    margin-top: 0px;
+    margin-top: -80px;
    
   
  
 
 }
 .formProduct{
-    background-color: white;
+    background-color: transparent;
     overflow-y: scroll;
-    height: 100%;
+
     margin-left: 5px;
     margin-right: 5px;
 }
 .Addprod{
     background-color:rgb(214, 214, 212);
   
-  
+    border-radius: 10px;
+    border: 5px solid darkgray;
    
 }
 .prod p{
@@ -55,7 +56,7 @@
     width: 80%;
     height: 30px;
     font-size: 18px;
-   
+
    background-color: rgb(167, 248, 167);
    color: #030303;
  padding: 5px;
@@ -94,14 +95,25 @@
 }
 .Addsizes{
    
-    background-color:#f3f3f3;
-    margin-top: 20px;
+    background-color:rgb(214, 214, 212);
+  
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 5px solid darkgray;
+}
+.Addsizes h2{
+    margin-top: 10px;
+    margin-bottom: 30px;
     
+}
+.sizes label{
+color:black
+
 }
 .sizes input{
     width: 100%;
     height: 30px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 17px;
     background-color: #f5f5f5;
     border-bottom-left-radius: 5px;
@@ -109,28 +121,30 @@
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
+
 .sizes select{
     width: 100%;
     height: 30px;
+    margin-bottom: 10px;
     font-size: 17px;
     background-color: #f5f5f5;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    margin-top: 10px;
+     
+  
     
 }
 .sizes  button{
     width: 80%;
     height: 30px;
     font-size: 18px;
-   margin-top: 240px;
+   margin-top: 40px;
    background-color: #56d845;
    color: #000000;
- padding: 10px;
+   padding: 20px;
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 40px;
+  margin: 25px;
+  border-radius: 10px;
  
 }
  .Buttonxontainer{

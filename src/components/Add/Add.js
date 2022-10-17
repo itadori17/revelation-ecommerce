@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef ,useState} from "react";
 import { db } from ".././config/Firebase";
 import { doc, setDoc, addDoc } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
+import { contains } from "@firebase/util";
+import './Add.css'
+import { FaBaby } from "react-icons/fa";
+
 
 function Add({ path }) {
   const query = collection(db, `product`);
@@ -15,9 +19,22 @@ function Add({ path }) {
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
-
+  const [isEdit, setIsEdit] = useState(false);
+  
+  const [show,setShow]=useState(false);
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
+
+const [image, setImage] = useState();
+console.log(image)
+const convert2base64 = e =>{
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = () =>{
+    setImage(reader.result.toString())
+  }
+  reader.readAsDataURL(file);
+};
 
   let refId = null;
 
@@ -25,11 +42,13 @@ function Add({ path }) {
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, `products`), {
+
+    await addDoc(collection(db,`product` ), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
       prodDescription: prodDescription.current.value,
+     
       productCode: new Date().getTime(),
     }).then(async (docRefRes) => {
       console.log("Document written with ID: ", docRefRes.id);
@@ -43,7 +62,7 @@ function Add({ path }) {
     await setDoc(
       doc(
         db,
-        "provingAPoint",
+        `product`,
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -63,32 +82,51 @@ function Add({ path }) {
   return (
     (<CmsCenter />),
     (
-      <div className="rightSideProductsInfo">
+      <div className="rightSideProductsInfo" >
+      
         {loading && "Loading..."}
         <form className="formProduct" onSubmit={handleSubmit}>
-          <div className="Addprod">
-            <div className="prod">
-              <h2>Add Product</h2>
-              <select ref={prodType}>
-                <option value="1">Select Type</option>
-                <option value="T-shirt">T-shirt</option>
-                <option value="Shorts">Shorts</option>
-                <option value="Shirt">Shirt</option>
-                <option value="Denim">Denim</option>
-              </select>
-            </div>
-            <div>
-              <select name="" id="" ref={brandCategory}>
-                <option value="Category">Select Category</option>
-                <option value="Category 2">Summer</option>
-                <option value="Category 3">Winter</option>
-                <option value="Category 4">Accessories</option>
-                <option value="Category 5">Sale</option>
-              </select>
-            </div>
+           <div className="Addprod">
+              <div className="prod">
+                 <h2>Add Product</h2>
+                   <select ref={prodType}>
+                      <option value="1">Select Type</option>
+                      <option value="T-shirt">T-shirt</option>
+                      <option value="Shorts">Shorts</option>
+                      <option value="Shirt">Shirt</option>
+                      <option value="Denim">Denim</option>
+                   </select>
+                </div>
+              <div>
+                   <select name="" id="" ref={brandCategory}>
+                      <option value="Category">Select Category</option>
+                      <option value="Category 2">Summer</option>
+                      <option value="Category 3">Winter</option>
+                      <option value="Category 4">Accessories</option>
+                      <option value="Category 5">Sale</option>
+                   </select>
+              </div>
+
+              <div>
+                   <input type="text" placeholder="Product Name" ref={prodName} />
+              </div>
 
             <div>
-              <input type="text" placeholder="Product Name" ref={prodName} />
+                  <textarea
+                  type="text"
+                  placeholder="About the product"
+                  ref={prodDescription}
+                />
+            </div>
+            <div>
+                <input type="alphanumeric" placeholder="Code"></input>
+            </div>
+               <div> <input type='file' useRef={image} onChange={e => convert2base64(e)} />
+               <img src={image}  />
+               </div>
+            <div>
+              <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
+             
             </div>
 
             <div>
@@ -147,3 +185,4 @@ function Add({ path }) {
 }
 
 export default Add;
+
