@@ -6,12 +6,11 @@ import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
 
 function Add({ path }) {
-  const query = collection(db, `products`);
+  const query = collection(db, `product`);
   const prodType = useRef();
   const brandCategory = useRef();
   const prodName = useRef();
   const prodDescription = useRef();
-  // const prodImage = useRef();
   const prodColor = useRef();
   const prodSizes = useRef();
   const prodPrice = useRef();
@@ -26,7 +25,7 @@ function Add({ path }) {
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, "productsTest"), {
+    await addDoc(collection(db, `products`), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -37,20 +36,14 @@ function Add({ path }) {
       refId = docRefRes.id;
     });
 
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
-    //   console.log('added');
+   
   }
   async function colorSubmit(e) {
     e.preventDefault();
     await setDoc(
       doc(
         db,
-        "productsTest",
+        "provingAPoint",
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -64,12 +57,7 @@ function Add({ path }) {
     ).then((docRef) => {
       console.log("added: ", docRef);
     });
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
+    
   }
 
   return (
@@ -111,13 +99,13 @@ function Add({ path }) {
               />
             </div>
             <div>{/* <input type='file' ref={prodImage}/> */}</div>
+            <input type="alphanumeric" placeholder="Code"/>
             <div>
               <button type="submit">ADD PRODUCT</button>
             </div>
           </div>
-
-          <input type="alphanumeric" placeholder="Code"></input>
         </form>
+        
         <form className="formProduct" onSubmit={colorSubmit}>
           <p>Available colors</p>
           <select ref={prodColor}>
@@ -126,10 +114,9 @@ function Add({ path }) {
             <option value="red">red</option>
             <option value="blue">blue</option>
             <option value="white">white</option>
-
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-            <option value="XXXL">XXXL</option>
+            <option value="yellow">yellow</option>
+            <option value="olive green">olive green</option>
+            <option value="maroon">maroon</option>
           </select>
           <div className="sizes">
             <p>Available sizes</p>
@@ -139,7 +126,6 @@ function Add({ path }) {
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
-
               <option value="XL">XL</option>
               <option value="XXL">XXL</option>
               <option value="XXXL">XXXL</option>
