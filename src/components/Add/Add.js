@@ -6,6 +6,8 @@ import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
 import { contains } from "@firebase/util";
 import './Add.css'
+import { FaBaby } from "react-icons/fa";
+
 
 function Add({ path }) {
   const query = collection(db, `products`);
@@ -18,6 +20,8 @@ function Add({ path }) {
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
+  const [isEdit, setIsEdit] = useState(false);
+  
   const [show,setShow]=useState(false);
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
@@ -39,7 +43,10 @@ const convert2base64 = e =>{
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, "stock"), {
+
+    await addDoc(collection(db,`product` ), {
+
+ 
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -64,7 +71,9 @@ const convert2base64 = e =>{
     await setDoc(
       doc(
         db,
-        "stock",
+
+        `product`,
+
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -90,7 +99,7 @@ const convert2base64 = e =>{
   return (
     (<CmsCenter />),
     (
-      <div className="rightSideProductsInfo">
+      <div className="rightSideProductsInfo" >
       
         {loading && "Loading..."}
         <form className="formProduct" onSubmit={handleSubmit}>
@@ -134,14 +143,18 @@ const convert2base64 = e =>{
                </div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
+             
             </div>
 
 
             
 
           </div>
-          { show && 
-          <div className='Addsizes' >
+         
+        </form>
+        { show && 
+          
+          <form className='Addsizes' onSubmit={colorSubmit}>
                 <h2>Product Features</h2>
                 <div className='sizes'>
                     
@@ -195,13 +208,8 @@ const convert2base64 = e =>{
              </div>
                 <button type="submit">Add</button>
              </div>
-            </div>
+            </form >
 }
-        </form>
-        {/* <form className="formProduct" onSubmit={colorSubmit}>
-          
-        </form>
-         */}
       </div>
     )
   );
