@@ -32,7 +32,10 @@ function Add({ path }) {
     e.preventDefault();
     // Add a new document with a generated id.
 
+
     await addDoc(collection(db,`product` ), {
+
+ 
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -56,7 +59,9 @@ function Add({ path }) {
     await setDoc(
       doc(
         db,
+
         `product`,
+
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
