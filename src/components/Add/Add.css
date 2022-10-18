@@ -4,7 +4,8 @@
     width: 100%;
     height: 100%;
     background-color: red;
-    position: absolute;
+   
+    overflow-y: scroll;
 }
 
 
@@ -92,11 +93,17 @@
     background-color: #f5f5f5;
    
 }
+.Addprod #image{
+    width: 100%;
+    height: 130px;
+}
 .Addsizes{
    
     background-color:rgb(214, 214, 212);
-  
-    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    margin-top: 20px;
     border-radius: 10px;
     border: 5px solid darkgray;
     margin-left: 5px;
