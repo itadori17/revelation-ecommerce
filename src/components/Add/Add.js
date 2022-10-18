@@ -121,64 +121,69 @@ const convert2base64 = e =>{
             <div>
                 <input type="alphanumeric" placeholder="Code"></input>
             </div>
-               <div> <input type='file' useRef={image} onChange={e => convert2base64(e)} />
+            <div> <input type='file' useRef={image} onChange={e => convert2base64(e)} />
                <img src={image}  />
-               </div>
+            </div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
              
             </div>
 
-            <div>
-              <textarea
-                type="text"
-                placeholder="About the product"
-                ref={prodDescription}
-              />
-            </div>
-            <div>{/* <input type='file' ref={prodImage}/> */}</div>
-            <input type="alphanumeric" placeholder="Code"/>
-            <div>
-              <button type="submit">ADD PRODUCT</button>
-            </div>
+           
+           
+           
           </div>
         </form>
-        
-        <form className="formProduct" onSubmit={colorSubmit}>
-          <p>Available colors</p>
-          <select ref={prodColor}>
-            <option value="default">Select Type</option>
-            <option value="black">black</option>
-            <option value="red">red</option>
-            <option value="blue">blue</option>
-            <option value="white">white</option>
-            <option value="yellow">yellow</option>
-            <option value="olive green">olive green</option>
-            <option value="maroon">maroon</option>
-          </select>
-          <div className="sizes">
-            <p>Available sizes</p>
-            <select ref={prodSizes}>
-              <option value="XS">Select Type</option>
-              <option value="XS">XS</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-              <option value="XXXL">XXXL</option>
-            </select>
-          </div>
-          <input
-            type="number"
-            step="0.01"
-            placeholder="Price"
-            ref={prodPrice}
-          ></input>
-          <input type="number" placeholder="Quantity" ref={prodQty}></input>
-          <button type="submit">Add</button>
-        </form>
-       
+        {show &&
+        <form className="Addsizes" onSubmit={colorSubmit}>
+            <div className="sizes">
+               <div>
+                   <h2>Product features</h2>
+                  <label>Available colors</label>
+                  <select ref={prodColor}>
+                    <option value="default">Select Type</option>
+                    <option value="black">black</option>
+                    <option value="red">red</option>
+                    <option value="blue">blue</option>
+                    <option value="white">white</option>
+                    <option value="yellow">yellow</option>
+                    <option value="olive green">olive green</option>
+                    <option value="maroon">maroon</option>
+                 </select>
+                </div>
+                <div >
+                   <label>Available sizes</label>
+                    <select ref={prodSizes}>
+                    <option value="XS">Select Type</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                     <option value="XXXL">XXXL</option>
+                   </select>
+                </div>
+                <div>
+                <label>Price</label>
+                  <input
+                   type="number"
+                   step="0.50"
+                  placeholder="Price"
+                   ref={prodPrice}
+                  ></input>
+                </div>
+                <div>
+                  <label>Quantity</label>
+                  <input type="number" placeholder="Quantity" ref={prodQty}></input>
+                </div>
+                <div>
+                 <button type="submit">Add</button>
+                </div>
+
+                </div> 
+             </form>
+}
       </div>
     )
   );
