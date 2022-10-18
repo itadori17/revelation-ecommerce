@@ -6,18 +6,21 @@ import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
 import { contains } from "@firebase/util";
 import './Add.css'
+import { FaBaby } from "react-icons/fa";
+
 
 function Add({ path }) {
-  const query = collection(db, `products`);
+  const query = collection(db, `product`);
   const prodType = useRef();
   const brandCategory = useRef();
   const prodName = useRef();
   const prodDescription = useRef();
-  // const prodImage = useRef();
   const prodColor = useRef();
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
+  const [isEdit, setIsEdit] = useState(false);
+  
   const [show,setShow]=useState(false);
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
@@ -39,7 +42,8 @@ const convert2base64 = e =>{
     e.preventDefault();
     // Add a new document with a generated id.
 
-    await addDoc(collection(db, "stock"), {
+
+    await addDoc(collection(db,`product` ), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
@@ -51,20 +55,14 @@ const convert2base64 = e =>{
       refId = docRefRes.id;
     });
 
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
-    //   console.log('added');
+   
   }
   async function colorSubmit(e) {
     e.preventDefault();
     await setDoc(
       doc(
         db,
-        "stock",
+        `product`,
         refId,
         "colours",
         prodColor.current.value + "_" + prodSizes.current.value
@@ -78,19 +76,13 @@ const convert2base64 = e =>{
     ).then((docRef) => {
       console.log("added: ", docRef);
     });
-
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
+    
   }
 
   return (
     (<CmsCenter />),
     (
-      <div className="rightSideProductsInfo">
+      <div className="rightSideProductsInfo" >
       
         {loading && "Loading..."}
         <form className="formProduct" onSubmit={handleSubmit}>
@@ -134,74 +126,59 @@ const convert2base64 = e =>{
                </div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
+             
             </div>
 
-
-            
-
+            <div>
+              <textarea
+                type="text"
+                placeholder="About the product"
+                ref={prodDescription}
+              />
+            </div>
+            <div>{/* <input type='file' ref={prodImage}/> */}</div>
+            <input type="alphanumeric" placeholder="Code"/>
+            <div>
+              <button type="submit">ADD PRODUCT</button>
+            </div>
           </div>
-          { show && 
-          <div className='Addsizes' >
-                <h2>Product Features</h2>
-                <div className='sizes'>
-                    
-                <label>Available colors</label>
-                <div>
-                   <select ref={prodColor}>
-                      <option value="default">Select Type</option>
-                      <option value="black">black</option>
-                      <option value="red">red</option>
-                      <option value="blue">blue</option>
-                      <option value="white">white</option>
-
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                      <option value="XXXL">XXXL</option>
-                   </select>
-                </div>
-              <div>
-                  <label>Available sizes</label> 
-                  <div>
-                    <select ref={prodSizes}>
-                      <option value="XS">Select Type</option>
-                      <option value="XS">XS</option>
-                      <option value="S">S</option>
-                      <option value="M">M</option>
-                      <option value="L">L</option>
-
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                      <option value="XXXL">XXXL</option>
-                   </select>
-                 </div>
-              </div>
-              <div>
-               <label>Price</label> 
-                <div>
-                  <input
-                   type="number"
-                   step="0.01"
-                    placeholder="Price"
-                   ref={prodPrice}
-                  />
-                </div>
-              </div>
-             <div>
-              <label> Quantity</label> 
-                <div>
-                  <input type="number" placeholder="Quantity" ref={prodQty}/>
-                </div>
-                
-             </div>
-                <button type="submit">Add</button>
-             </div>
-            </div>
-}
         </form>
-        {/* <form className="formProduct" onSubmit={colorSubmit}>
-          
+        
+        <form className="formProduct" onSubmit={colorSubmit}>
+          <p>Available colors</p>
+          <select ref={prodColor}>
+            <option value="default">Select Type</option>
+            <option value="black">black</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="white">white</option>
+            <option value="yellow">yellow</option>
+            <option value="olive green">olive green</option>
+            <option value="maroon">maroon</option>
+          </select>
+          <div className="sizes">
+            <p>Available sizes</p>
+            <select ref={prodSizes}>
+              <option value="XS">Select Type</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+              <option value="XXXL">XXXL</option>
+            </select>
+          </div>
+          <input
+            type="number"
+            step="0.01"
+            placeholder="Price"
+            ref={prodPrice}
+          ></input>
+          <input type="number" placeholder="Quantity" ref={prodQty}></input>
+          <button type="submit">Add</button>
         </form>
-         */}
+       
       </div>
     )
   );
