@@ -1,13 +1,10 @@
-import React, { useRef ,useState} from "react";
+import React, { useRef } from "react";
 import { db } from ".././config/Firebase";
 import { doc, setDoc, addDoc } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "@firebase/firestore";
+import React, { useRef } from "react";
 import CmsCenter from "./CmsCenter";
-import { contains } from "@firebase/util";
-import './Add.css'
-import { FaBaby } from "react-icons/fa";
-
 
 function Add({ path }) {
   const query = collection(db, `products`);
@@ -15,26 +12,14 @@ function Add({ path }) {
   const brandCategory = useRef();
   const prodName = useRef();
   const prodDescription = useRef();
+  // const prodImage = useRef();
   const prodColor = useRef();
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
-  const [isEdit, setIsEdit] = useState(false);
-  
-  const [show,setShow]=useState(false);
+
   const [docs, loading] = useCollectionData(query);
   console.log(docs);
-
-const [image, setImage] = useState();
-console.log(image)
-const convert2base64 = e =>{
-  const file = e.target.files[0];
-  const reader = new FileReader();
-  reader.onloadend = () =>{
-    setImage(reader.result.toString())
-  }
-  reader.readAsDataURL(file);
-};
 
   let refId = null;
 
@@ -42,96 +27,78 @@ const convert2base64 = e =>{
     e.preventDefault();
     // Add a new document with a generated id.
 
-
-    await addDoc(collection(db,`product` ), {
+    await addDoc(collection(db, "product"), {
       prodType: prodType.current.value,
       prodName: prodName.current.value,
       brandCategory: brandCategory.current.value,
       prodDescription: prodDescription.current.value,
-     
       productCode: new Date().getTime(),
     }).then(async (docRefRes) => {
       console.log("Document written with ID: ", docRefRes.id);
       refId = docRefRes.id;
     });
-
-   
-  }
-  async function colorSubmit(e) {
-    e.preventDefault();
-    await setDoc(
-      doc(
-        db,
-        `product`,
-        refId,
-        "colours",
-        prodColor.current.value + "_" + prodSizes.current.value
-      ),
-      {
-        price: prodPrice.current.value,
-        qty: prodQty.current.value,
-        size: prodSizes.current.value,
-        colour: prodColor.current.value,
-      }
-    ).then((docRef) => {
-      console.log("added: ", docRef);
-    });
-    
-  }
-
-  return (
-    (<CmsCenter />),
-    (
-      <div className="rightSideProductsInfo" >
-      
-        {loading && "Loading..."}
-        <form className="formProduct" onSubmit={handleSubmit}>
-           <div className="Addprod">
-              <div className="prod">
-                 <h2>Add Product</h2>
-                   <select ref={prodType}>
+    async function colorSubmit(e) {
+      e.preventDefault();
+      await setDoc(
+        doc(
+          db,
+          "product",
+          refId,
+          "colours",
+          prodColor.current.value + "_" + prodSizes.current.value
+        ),
+        {
+          price: prodPrice.current.value,
+          qty: prodQty.current.value,
+          size: prodSizes.current.value,
+          colour: prodColor.current.value,
+        }
+        ).then((docRef) => {
+          console.log("added: ", docRef);
+        })};
+        return (
+          <>
+          <CmsCenter />
+            <div className="rightSideProductsInfo">
+              {loading && "Loading..."}
+              <form className="formProduct" onSubmit={handleSubmit}>
+                <div className="Addprod">
+                  <div className="prod">
+                    <h2>Add Product</h2>
+                    <select ref={prodType}>
                       <option value="1">Select Type</option>
                       <option value="T-shirt">T-shirt</option>
                       <option value="Shorts">Shorts</option>
                       <option value="Shirt">Shirt</option>
                       <option value="Denim">Denim</option>
-                   </select>
-                </div>
-              <div>
-                   <select name="" id="" ref={brandCategory}>
+                    </select>
+                  </div>
+                  <div>
+                    <select name="" id="" ref={brandCategory}>
                       <option value="Category">Select Category</option>
                       <option value="Category 2">Summer</option>
                       <option value="Category 3">Winter</option>
                       <option value="Category 4">Accessories</option>
                       <option value="Category 5">Sale</option>
-                   </select>
-              </div>
-
-              <div>
-                   <input type="text" placeholder="Product Name" ref={prodName} />
-              </div>
-
-            <div>
-                  <textarea
-                  type="text"
-                  placeholder="About the product"
-                  ref={prodDescription}
-                />
+                    </select>
+                  </div>
+                  <div>
+              <input type="text" placeholder="Product Name" ref={prodName} />
             </div>
             <div>
-                <input type="alphanumeric" placeholder="Code"></input>
+              <textarea
+                type="text"
+                placeholder="About the product"
+                ref={prodDescription}
+              />
             </div>
-               <div> <input type='file' useRef={image} onChange={e => convert2base64(e)} />
-               <img src={image}  />
-               </div>
+            <div><input type="alphanumeric" placeholder="Code"></input></div>
             <div>
-              <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
-             
+              <button type="submit">ADD PRODUCT</button>
             </div>
-
-          </div>
-        </form>
-        <form className="formProduct" onSubmit={colorSubmit}>
+            </div>
+            </form>
+            <form className="formProduct" onSubmit={colorSubmit}>
           <p>Available colors</p>
           <select ref={prodColor}>
             <option value="default">Select Type</option>
@@ -139,9 +106,10 @@ const convert2base64 = e =>{
             <option value="red">red</option>
             <option value="blue">blue</option>
             <option value="white">white</option>
-            <option value="yellow">yellow</option>
-            <option value="olive green">olive green</option>
-            <option value="maroon">maroon</option>
+
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
           </select>
           <div className="sizes">
             <p>Available sizes</p>
@@ -151,6 +119,7 @@ const convert2base64 = e =>{
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
+
               <option value="XL">XL</option>
               <option value="XXL">XXL</option>
               <option value="XXXL">XXXL</option>
@@ -165,11 +134,9 @@ const convert2base64 = e =>{
           <input type="number" placeholder="Quantity" ref={prodQty}></input>
           <button type="submit">Add</button>
         </form>
-       
       </div>
-    )
-  );
+      </>
+    );
 }
 
 export default Add;
-

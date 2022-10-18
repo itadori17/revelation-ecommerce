@@ -11,13 +11,13 @@
 .rightSideProductsInfo{
     background-color: transparent;
     width: 20%;
-  height:100%;
+  height:85%;
   float: right;
   right: 100px;
   margin-left: 15px;
     margin-top: -80px;
    
-  
+    overflow-y: scroll;
  
 
 }
@@ -96,9 +96,11 @@
    
     background-color:rgb(214, 214, 212);
   
-    margin-top: 5px;
+    margin-top: 15px;
     border-radius: 10px;
     border: 5px solid darkgray;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .Addsizes h2{
     margin-top: 10px;
