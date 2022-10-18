@@ -6,18 +6,21 @@ import { collection } from "@firebase/firestore";
 import CmsCenter from "./CmsCenter";
 import { contains } from "@firebase/util";
 import './Add.css'
+import { FaBaby } from "react-icons/fa";
+
 
 function Add({ path }) {
-  const query = collection(db, `products`);
+  const query = collection(db, `product`);
   const prodType = useRef();
   const brandCategory = useRef();
   const prodName = useRef();
   const prodDescription = useRef();
-  // const prodImage = useRef();
   const prodColor = useRef();
   const prodSizes = useRef();
   const prodPrice = useRef();
   const prodQty = useRef();
+  const [isEdit, setIsEdit] = useState(false);
+  
   const [show,setShow]=useState(false);
   // const [imagecon,setImagecon]=useState(false);
   const [docs, loading] = useCollectionData(query);
@@ -64,13 +67,7 @@ function setPic(image){
       refId = docRefRes.id;
     });
 
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
-    //   console.log('added');
+   
   }
   async function colorSubmit(e) {
     e.preventDefault();
@@ -91,19 +88,13 @@ function setPic(image){
     ).then((docRef) => {
       console.log("added: ", docRef);
     });
-
-    //   const docRef= doc(db, prodType.current.value,prodColor.current.value);
-    //   await setDoc(docRef, {prodType: prodType.current.value, prodName: prodName.current.value, brandCategory: brandCategory.current.value, prodDescription: prodDescription.current.value, })
-    //   // we use addDoc if we use the auto generated id in this case we are using name
-    //  //and if we use id we must not use the path prop
-    //  // await setDoc(docRef, {path})
-    //   e.target.reset()
+    
   }
 
   return (
     (<CmsCenter />),
     (
-      <div className="rightSideProductsInfo">
+      <div className="rightSideProductsInfo" >
       
         {loading && "Loading..."}
         <form className="formProduct" onSubmit={handleSubmit}>
@@ -150,11 +141,11 @@ function setPic(image){
                </div>
             <div>
               <button type="submit" onClick={()=>setShow (!show )}>ADD PRODUCT</button>
+             
             </div>
 
-
-            
-
+          
+              
           </div>
           
          
@@ -174,9 +165,9 @@ function setPic(image){
                       <option value="blue">blue</option>
                       <option value="white">white</option>
 
-                      <option value="XL">XL</option>
-                      <option value="XXL">XXL</option>
-                      <option value="XXXL">XXXL</option>
+                      <option value="yellow">yellow</option>
+                      <option value="olive green">olive green</option>
+                      <option value="maroon">maroon</option>
                    </select>
                 </div>
               <div>

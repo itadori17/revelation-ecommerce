@@ -24,7 +24,7 @@
 }
 .formProduct{
     background-color: transparent;
-    overflow-y: scroll;
+overflow-y: scroll;
 
     margin-left: 5px;
     margin-right: 5px;
@@ -107,6 +107,8 @@
     margin-top: 20px;
     border-radius: 10px;
     border: 5px solid darkgray;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .Addsizes h2{
     margin-top: 10px;
