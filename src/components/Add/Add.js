@@ -10,7 +10,7 @@ import { FaBaby } from "react-icons/fa";
 
 
 function Add({ path }) {
-  const query = collection(db, `product`);
+  const query = collection(db, `products`);
   const prodType = useRef();
   const brandCategory = useRef();
   const prodName = useRef();
@@ -129,21 +129,8 @@ const convert2base64 = e =>{
              
             </div>
 
-            <div>
-              <textarea
-                type="text"
-                placeholder="About the product"
-                ref={prodDescription}
-              />
-            </div>
-            <div>{/* <input type='file' ref={prodImage}/> */}</div>
-            <input type="alphanumeric" placeholder="Code"/>
-            <div>
-              <button type="submit">ADD PRODUCT</button>
-            </div>
           </div>
         </form>
-        
         <form className="formProduct" onSubmit={colorSubmit}>
           <p>Available colors</p>
           <select ref={prodColor}>
