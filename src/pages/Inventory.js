@@ -7,6 +7,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 function Inventory() {
+
   const [cards] = useState([
     {
       title: 'Bongani',
@@ -39,14 +40,18 @@ function Inventory() {
       image:"https://www.johncraig.co.za/wp-content/uploads/CLG02FA-CARLO-G-BRENDAN-CHECK-TROUSER-2-PLEAT-FAWN-469-V1-300x300.jpg"
     },
   ])
-
+  const handlesubmit=event=>{
+  event.preventDefault()
+ }
   useEffect(() => {
+   
     getDocs(collection(db, "products")).then((res) => {
       
       res.forEach((doc) => {
         getDocs(collection(db, "products", doc.id, 'colours')).then((response) => {
           // doc.data() is never undefined for query doc snapshots
           response.forEach((e) => {
+            
           console.log(e.id, " => ", e.data());
           })
         });
@@ -79,9 +84,9 @@ function Inventory() {
             <div className='Image'>image container<img src={card.image} style={{width:"100%" ,height:"100%",margin:"auto",display:"flex",alignItems:"center",marginTop:"-18px"}}/></div>
               <div  className='inputs'>
                 <div className='input'>
-                  <span>-</span>
+                 <button className='btnInven' >-</button>
                     <   input type="text" placeholder='3'  ></input>
-                 <span>+</span>
+                    <button className='btnInvent'>+</button>
               </div>
                 
                 <div className='btns'>

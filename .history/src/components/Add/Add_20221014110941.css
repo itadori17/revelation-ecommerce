@@ -1,0 +1,174 @@
+
+
+.productsInfo{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+}
+
+
+.rightSideProductsInfo{
+    background-color: white;
+    width: 18%;
+  height:75%;
+  float: right;
+  right: 100px;
+  margin-left: 15px;
+    
+   margin-top: 0px;
+   
+  
+ 
+
+}
+.formProduct{
+    background-color: white;
+    overflow-y: scroll;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.Addprod{
+    background-color:rgb(214, 214, 212);
+  
+  
+   
+}
+.prod p{
+   color: rgb(0, 0, 0);
+   margin-top: 10px;
+   font-size: 20px;
+   text-align: center;
+   font-weight:bold;
+}
+.Addprod select{
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 10px;
+   
+}
+.Addprod button{
+    width: 80%;
+    height: 30px;
+    font-size: 18px;
+   
+   background-color: rgb(167, 248, 167);
+   color: #030303;
+ padding: 5px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 30px;
+  border: none;
+}
+
+.Addprod button:hover{
+    background-color: rgb(21, 255, 0);
+}
+
+.Addprod input{
+  
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.Addprod textarea{
+    width: 100%;
+    height: 130px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+   
+}
+.Addsizes{
+   
+    background-color:#f3f3f3;
+    margin-top: 20px;
+    
+}
+.sizes input{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.sizes select{
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 10px;
+    
+}
+.sizes  button{
+    width: 80%;
+    height: 30px;
+    font-size: 18px;
+   margin-top: 240px;
+   background-color: #56d845;
+   color: #000000;
+ padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 40px;
+}
+ .Buttonxontainer{
+
+    width: 100%;
+    height: 260px;
+    background-color: #f5f5f5;
+ }
+.Buttonxontainer input{
+     margin-top: 10px;
+     width: 100%;
+     height: 30px;
+     margin-top: 10px;
+     font-size: 17px;
+     background-color: white;
+}
+.Buttonxontainer p{
+    text-align: center;
+   margin-top: 1px;
+}
+.Buttonxontainer button{
+    text-align: center;
+   
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+  
+  
+}
+.Buttonxontainer .button2  {
+    background-color: #03f564;
+} 
+.btnClr{
+    background-color: #fa6868;
+} 
+
+.btnClr:hover{
+    background-color: #ff0000;
+} 
+
+ 
