@@ -7,7 +7,8 @@ function Loader ({loading}) {
     return (
         <>
         {
-            loading &&  <div className='loader' /> 
+            loading &&  <div className='loader'><h1>Loading</h1></div>
+             
         }
          
         </>
