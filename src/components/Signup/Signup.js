@@ -62,7 +62,6 @@ const Signup = () => {
         const user = await createUserWithEmailAndPassword(
           auth,email,password).then(() =>{
             setLoading(false)
-            window.location('./Login')
           }).catch((error) =>{
             console.log(error.message);
             if (error.message === 'Firebase: Error (auth/email-already-in-use).'){
@@ -142,7 +141,7 @@ const Signup = () => {
                 Sign Up
               </button>
               <div className="message"></div>
-              <NavLink to="./Login" className="NavLink" exact>
+              <NavLink to="/Login" className="NavLink" exact>
                 <span>
                   <i>Sign In</i>
                 </span>
