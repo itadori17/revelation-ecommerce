@@ -136,7 +136,7 @@ function setPic(image){
             
                <div>
               
-               <input type='file' id='userImage1' ref={imageRef} onChange={(event)=>setPic (setImage(event.target.value))} />
+               <input type='file' placeholder="Image Here" id='userImage1' ref={imageRef} onChange={(event)=>setPic (setImage(event.target.value))} />
              
                   <img id="image"  src={localStorage.getItem('image')}  />
                     

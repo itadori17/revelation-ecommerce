@@ -6,19 +6,19 @@
    
 }
 .InventoryPage{
-    width: 95%;
-    height: 75%;
-   
- 
-    
+     width:90%;
+     height: 60%;
+     background-color: transparent;
+     
+    margin-left: 15px;
 }
 .Inventorycontainer{
-   width: 78%;
- height: 73%;
-   
+
+ height: 45%;
+   width: 80%;
   margin-top: 20px;
  
-
+background-color: transparent;
   scroll-behavior: smooth;
   overflow-y: scroll;
 }
@@ -31,7 +31,7 @@
 .Inventorycontainer .InventoryItems{
 
     width: 80%;
-   
+    
 
     align-items: center;
     justify-content: center;
@@ -61,16 +61,17 @@
 }
 
 .InventoryItems  .container {
-
+background-color: transparent;
 margin-top: 20px;
+height: 90%;
 
 }
 .container .cardrs{
-  
+  width: 100%;
         display: flex;
         flex-wrap: wrap;
-    margin: auto;
-        
+        height: 60%;
+        background-color: transparent;
         
 }
 .cardrs .cardz{
@@ -94,7 +95,7 @@ margin-top: 20px;
     margin-top: -120px;
 }
 .cardz .inputs{
-    background-color: rgba(245, 245, 245, 0.86);
+    
    
     
     display: flex;
@@ -126,9 +127,13 @@ margin-top: 20px;
 }
 .btns .save{
     background-color: aquamarine;
+    width: 80px;
+    height: 30px;
 }
 .btns .delete{
     background-color: red;
+    width: 80px;
+    height: 30px;
 }
 
 .btnInven {

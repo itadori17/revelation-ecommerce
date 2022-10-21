@@ -14,10 +14,10 @@
     width: 20%;
   height:90%;
   float: right;
-  right: 100px;
+  right: -13px;
   margin-left: 15px;
-    margin-top: -60px;
-   
+    margin-top: -100px;
+   position: fixed;
     overflow-y: scroll;
  
 
@@ -25,15 +25,15 @@
 .formProduct{
     background-color: transparent;
 overflow-y: scroll;
-
+float: right;
     margin-left: 5px;
     margin-right: 5px;
 }
 .Addprod{
-    background-color:rgb(214, 214, 212);
-  
-    border-radius: 10px;
-    border: 5px solid darkgray;
+    background-color:black;
+    color: white;
+   
+    border: 10px solid black;
    
 }
 .prod p{
@@ -58,7 +58,7 @@ overflow-y: scroll;
     height: 30px;
     font-size: 18px;
 
-   background-color: rgb(167, 248, 167);
+   background-color: #B76E79;
    color: #030303;
  padding: 5px;
   align-items: center;
@@ -71,7 +71,7 @@ overflow-y: scroll;
 }
 
 .Addprod button:hover{
-    background-color: rgb(21, 255, 0);
+    background-color: #F7CAC9;
 }
 
 .Addprod input{
@@ -97,15 +97,18 @@ overflow-y: scroll;
 .Addprod #image{
     width: 100%;
     height: 130px;
+    border: 1px solid white;
+    background-color: white;
+    margin-top: 10px;
 }
 .Addsizes{
    
-    background-color:rgb(214, 214, 212);
+    background-color:black;
     margin-left: 5px;
     margin-right: 5px;
 
     margin-top: 20px;
-    border-radius: 10px;
+ color: #000;
     border: 5px solid darkgray;
     margin-left: 5px;
     margin-right: 5px;
@@ -146,7 +149,7 @@ color:black
     height: 30px;
     font-size: 18px;
    margin-top: 40px;
-   background-color: #56d845;
+   background-color: #B76E79;
    color: #000000;
    padding: 20px;
   align-items: center;
