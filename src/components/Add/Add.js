@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { db } from ".././config/Firebase";
 import { doc, setDoc, addDoc } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection } from "@firebase/firestore";
-import React, { useRef } from "react";
 import CmsCenter from "./CmsCenter";
+import "./Add.css";
 
 function Add({ path }) {
   const query = collection(db, `products`);
@@ -100,16 +100,22 @@ function setPic(image){
               <div className="prod">
                  <h2>Add Product</h2>
                    <select ref={prodType}>
-                      <option value="1">Select Type</option>
-                      <option value="T-shirt">T-shirt</option>
-                      <option value="Shorts">Shorts</option>
-                      <option value="Shirt">Shirt</option>
+                      <option value="0">Select Type</option>
+                      <option value="Tops">Tops</option>
+                      <option value="Shirts">Shirts</option>
+                      <option value="Jackets,Sweatshirts&Blazers">Jackets, Sweatshirts & Blazers</option>
                       <option value="Denim">Denim</option>
+                      <option value="Pants">Pants</option>
+                      <option value="Shorts">Shorts</option>
+                      <option value="Shoes">Shoes</option>
+                      <option value="Bags">Bags</option>
+                      <option value="Belts">Belts</option>
+                      <option value="Hats&Scarves">Hats & Scarves</option>
                     </select>
                   </div>
                   <div>
                     <select name="" id="" ref={brandCategory}>
-                      <option value="Category">Select Category</option>
+                      <option value="0">Select Category</option>
                       <option value="Summer">Summer</option>
                       <option value="Winter">Winter</option>
                       <option value="Accessories">Accessories</option>
@@ -162,10 +168,22 @@ function setPic(image){
                       <option value="red">red</option>
                       <option value="blue">blue</option>
                       <option value="white">white</option>
-
+                      <option value="green">green</option>
+                      <option value="grey">grey</option>
                       <option value="yellow">yellow</option>
                       <option value="olive green">olive green</option>
                       <option value="maroon">maroon</option>
+                      <option value="nude">nude</option>
+                      <option value="purple">purple</option>
+                      <option value="pink">pink</option>
+                      <option value="orange">orange</option>
+                      <option value="brown">brown</option>
+                      <option value="beige">beige</option>
+                      <option value="khaki">khaki</option>
+                      <option value="navy blue">navy blue</option>
+                      <option value="silver">silver</option>
+                      <option value="gold">gold</option>
+                      <option value="multi">multi</option>
                    </select>
                 </div>
               <div>
@@ -177,7 +195,6 @@ function setPic(image){
                       <option value="S">S</option>
                       <option value="M">M</option>
                       <option value="L">L</option>
-
                       <option value="XL">XL</option>
                       <option value="XXL">XXL</option>
                       <option value="XXXL">XXXL</option>
