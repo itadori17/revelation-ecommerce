@@ -13,7 +13,7 @@ function Inventory() {
     event.preventDefault()
   }
   const [stock, setStock] = useState([]);
-  const[prodname,setprodname]= useState([]);
+ 
   const [prodList,setprodList] =useState([])
   console.log(stock)
   useEffect(() => {
@@ -69,20 +69,27 @@ function Inventory() {
           <div className='container'>
             <div className='cardrs'>
               {
-              prodList.map((id,index)=>{
+              prodList.map((id,index )=>{
                   console.log("===========",id);
                   return(
-                  <div className='cardz' key={id}>{index + 1}
-                    <h3>{stock}</h3>
-                    <h4>{id.prodName}</h4>
+                  <div key={id } className='cardz' >
+                   
+                    <h3>{id.prodName}</h3>
+                    
+                    <p>{id.prodDescription}</p>
+                    <p>{id.coloursList[0].size}</p>
+                    <p>{id.coloursList[0].colour}</p>
+                    <p>{id.coloursList[0].price}</p>
+                    <p>{id.coloursList[0].qty}</p> 
+
                     <div className='Image'>image container<img src={id.image}  alt="Product Image" style={{ width: "100%", height: "100%", margin: "auto", display: "flex", alignItems: "center", marginTop: "-18px" }} /></div>
-                    <input>{}</input>
+                   
                     <div className='inputs'>
-                      <div className='input'>
+                      {/* <div className='input'>
                         <button className='btnInven' >-</button>
                         <   input type="text" placeholder='3'  ></input>
                         <button className='btnInvent'>+</button>
-                      </div>
+                      </div> */}
                       <div className='btns'>
                         <button className='save'>Save</button>
                         <button className='delete'>Delete</button>

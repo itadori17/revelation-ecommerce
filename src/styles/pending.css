@@ -36,7 +36,7 @@ P{
     margin-bottom: 40px;
 }
 
-.cards {
+My life as a loser {
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
@@ -79,6 +79,152 @@ justify-content: space-between;
 .btn:hover{
     background: transparent;
     color: #4563eb;
+}
+.Orderstutus{
+    position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+}
+.left{
+ 
+ width: 60%;
+ background-color: transparent;
+ height: 80%;
+ 
+}
+.left p{
+    font-size: 25px;
+    margin-left: 100px;
+}
+.right{
+    float: right;
+ right: 0px;
+ position: absolute;
+ height: 80%;
+    width: 40%;
+    background-color: transparent;
+}
+.right .OrderedProduct{
+    width:80%;
+    height: 60%;
+    background-color: transparent;
+    display:flex
+}
+.head{
+    background-color: transparent;
+    width: 80%;
+    height: 12%;
+    position: absolute;
+}
+.head h1{
+    
+    font-size: 40px;
+}
+ .imagcon{
+    width: 100%;
+    height: 80%;
+    margin-top: auto;
+    background-color: transparent;
+    display:flex
+}
+.imagcon  .right1{
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+ 
+   
+    
+    
+}
+.right1 p{
+    font-size: 20px;
+}
+.imagcon  .left{
+    width: 50%;
+    height: 100%;
+    background-color: green;
+    float: left;
+   
+}
+.left img{
+    height: 100%;
+    width: 100%;
+}
+.bottom{
+    position: absolute;
+float: bottom;
+bottom: 0px;
+    height: 20%;
+       width: 100%;
+       background-color: transparent;
+}
+.orderprocess{
+    background-color: white;
+    height: 120px;
+    width: 98%;
+    display: flex;margin: auto;
+    margin-top: -23px;
+}
+.orderprocess .ordernumber{
+    background-color: gray;
+    width: 50%;
+    height: 90%;
+   display: flex;
+   margin-top: 6PX;
+   display: flex;
+position: relative;
+counter-reset: step;
+}
+.ordernumber::before{
+    margin: 118px;
+   margin-top: 55px;
+    content: "";
+    position: absolute;
+    height: 8px;
+    width:70.7%;
+    transform: translateY(-50%);
+    background-color: black;
+}
+.progress-step{
+    width:50px;
+    height:50px;
+    background-color: white;
+    border-radius: 50%;
+    margin: auto;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+   font-size: 40px;
+}
+
+.orderprocess .orderbtn{
+    background-color: transparent;
+    width: 50%;
+    height: 90%;
+   display: flex;
+   margin-top: 6PX;
+}
+.orderbtn button{
+   width:30%;
+   height: 40px;
+   align-items: center;
+   margin: 30px;
+   font-size: 20px;
+}
+.cancel{
+    background-color: red;
+
+}
+.proceed{
+    background-color: yellow;
 }
 
 @media (max-width : 969px) {
