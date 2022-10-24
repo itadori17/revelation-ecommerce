@@ -46,7 +46,7 @@ function Inventory() {
           setprodList(item=>[...item,Object.assign(doc.data(), {coloursList: coloursList})]);
           
           console.log('Colours: ', prodList)
-
+          
 
         },[]);
   
@@ -77,10 +77,10 @@ function Inventory() {
                     <h3>{id.prodName}</h3>
                     
                     <p>{id.prodDescription}</p>
-                    <p>{id.coloursList[0].size}</p>
+                    {/* <p>{id.coloursList[0].size}</p>
                     <p>{id.coloursList[0].colour}</p>
                     <p>{id.coloursList[0].price}</p>
-                    <p>{id.coloursList[0].qty}</p> 
+                    <p>{id.coloursList[0].qty}</p>  */}
 
                     <div className='Image'>image container<img src={id.image}  alt="Product Image" style={{ width: "100%", height: "100%", margin: "auto", display: "flex", alignItems: "center", marginTop: "-18px" }} /></div>
                    
