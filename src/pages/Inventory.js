@@ -13,7 +13,7 @@ function Inventory() {
     event.preventDefault()
   }
   const [stock, setStock] = useState([]);
-  const[prodname,setprodname]= useState([]);
+ 
   const [prodList,setprodList] =useState([])
   console.log(stock)
   useEffect(() => {
@@ -69,10 +69,10 @@ function Inventory() {
           <div className='container'>
             <div className='cardrs'>
               {
-              prodList.map((id)=>{
+              prodList.map((id,index )=>{
                   console.log("===========",id);
                   return(
-                  <div key={id} className='cardz' >
+                  <div key={id } className='cardz' >
                    
                     <h3>{id.prodName}</h3>
                     
@@ -80,7 +80,7 @@ function Inventory() {
                     <p>{id.coloursList[0].size}</p>
                     <p>{id.coloursList[0].colour}</p>
                     <p>{id.coloursList[0].price}</p>
-                    <p>{id.coloursList[0].qty}</p>
+                    <p>{id.coloursList[0].qty}</p> 
 
                     <div className='Image'>image container<img src={id.image}  alt="Product Image" style={{ width: "100%", height: "100%", margin: "auto", display: "flex", alignItems: "center", marginTop: "-18px" }} /></div>
                    
