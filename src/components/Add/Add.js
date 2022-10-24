@@ -220,10 +220,11 @@ function setPic(image){
       </div>
     )
 
+
+    )
+  }
 export default Add;
 
 
-    );
-}
-
+    
 
