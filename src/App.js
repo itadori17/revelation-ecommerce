@@ -51,6 +51,7 @@ const App = () => {
     <Navbar/>
     <Sidebar>
         <Routes>
+        <Route path="*" element={<Inventory/>} />
           <Route path="/" element={<Inventory/>} />
           <Route path="/pending" element={<Pending />} />
           <Route path="/order" element={<OrderHistory />} />
