@@ -6,7 +6,7 @@
    
 }
 .InventoryPage{
-     width:90%;
+     width:80%;
      height: 60%;
      background-color: transparent;
      
@@ -15,12 +15,13 @@
 .Inventorycontainer{
 
  height: 43%;
-   width: 80%;
-  margin-top: 20px;
- 
+width: 90%;
+margin-top: 20px;
+display: flex;
+margin: auto;
 background-color: transparent;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
+scroll-behavior: smooth;
+overflow-y: scroll;
 }
 ::-webkit-scrollbar{
     width: 3px;
@@ -48,7 +49,7 @@ background-color: transparent;
    display: flex;
  
 }
-.Inventoryinput input{
+.Inventoryinput  input{
     width: 80%;
     height: 50px;
     font-size: 50px;
@@ -63,18 +64,19 @@ background-color: transparent;
 .InventoryItems  .container {
 background-color: transparent;
 margin-top: 20px;
-height: 90%;
+height: 80%;
 
 }
 .container .cardrs{
   width: 100%;
         display: flex;
         flex-wrap: wrap;
-        height: 60%;
+        height: 40%;
         background-color: transparent;
         
 }
 .cardrs .cardz{
+    
     width: 100%;
     background-color: #fff;
     border-radius: 10px;

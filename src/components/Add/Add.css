@@ -111,13 +111,14 @@ float: right;
 
     margin-top: 20px;
  color: #000;
-    border: 5px solid darkgray;
+    border: 5px solid black;
     margin-left: 5px;
     margin-right: 5px;
 }
 .Addsizes h2{
     margin-top: 10px;
     margin-bottom: 30px;
+    color: white;
     
 }
 .sizes label{
