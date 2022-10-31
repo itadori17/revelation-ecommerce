@@ -8,12 +8,12 @@ import {
   getDocs,
 } from "firebase/firestore";
 function Inventory() {
-
+const [colourList2,setColourList2]=useState()
   const handlesubmit = event => {
     event.preventDefault()
   }
   const [stock, setStock] = useState([]);
-  const[prodname,setprodname]= useState([]);
+ 
   const [prodList,setprodList] =useState([])
   console.log(stock)
   useEffect(() => {
@@ -34,6 +34,8 @@ function Inventory() {
             // console.log('Colours 3: ', prodList)
 
             coloursList.push(e.data())
+            setColourList2(e.data());
+            console.log(colourList2);
             // getInventoryStock.push(
             //   doc.id
             // )
@@ -42,11 +44,13 @@ function Inventory() {
 
           })
           // console.log("GET DATA: ", doc.data())
-          
-          setprodList(item=>[...item,Object.assign(doc.data(), {coloursList: coloursList})]);
+          setTimeout(()=>{
+            setprodList(item=>[...item,Object.assign(doc.data(), {coloursList: coloursList})]);
+return;
+          },5000)
           
           console.log('Colours: ', prodList)
-
+          
 
         },[]);
   
@@ -72,17 +76,25 @@ function Inventory() {
               prodList.map((id,index)=>{
                   console.log("===========",id);
                   return(
-                  <div className='cardz' key={id}>{index + 1}
-                    <h3>{stock}</h3>
-                    <h4>{id.prodName}</h4>
+                  <div key={index} className='cardz' >
+                   
+                    <h3>{id.prodName}</h3>
+                    
+                    <p>{id.prodDescription}</p>
+                  
+                    <p>{id.coloursList.colour}</p>
+                    <p>{id.coloursList.price}</p>
+                    <p>{id.coloursList.size}</p>
+                    <p>{id.coloursList.qty}</p> 
+
                     <div className='Image'>image container<img src={id.image}  alt="Product Image" style={{ width: "100%", height: "100%", margin: "auto", display: "flex", alignItems: "center", marginTop: "-18px" }} /></div>
-                    <input>{}</input>
+                   
                     <div className='inputs'>
-                      <div className='input'>
+                      {/* <div className='input'>
                         <button className='btnInven' >-</button>
                         <   input type="text" placeholder='3'  ></input>
                         <button className='btnInvent'>+</button>
-                      </div>
+                      </div> */}
                       <div className='btns'>
                         <button className='save'>Save</button>
                         <button className='delete'>Delete</button>
